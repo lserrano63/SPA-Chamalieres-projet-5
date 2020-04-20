@@ -1,0 +1,25 @@
+Billet simple pour l'Alaska : https://projetsls.fr/JeanForteroche/index.php
+
+Côté utilisateur :
+
+Chaque utilisateur aura accès à vos différents posts depuis l'acceuil. Au clique sur Voir plus, l'utilisateur accèdera au post associé.
+Sur chacun de ces posts, les visiteurs pourront voir le post ainsi que les ifférents commentaires, commenter et si un commentaire choque, le signaler grâce au bouton sens interdit.
+Les visiteurs auront aussi la posibilité d'aller sur votre page A Propos : https://projetsls.fr/JeanForteroche/index.php?action=propos sur laquelle sera écrit votre biographie et vos différents moyens de contact.
+
+Côté administrateur :
+
+Pour se connecter : Bouton "connection" en bas de votre page ou https://projetsls.fr/JeanForteroche/index.php?action=login
+Veuillez rentrer votre pseudo / mot de passe provisoire : pseudo : jean mot de passe : toto
+
+Panneau administrateur : Bouton Menu principal Administration ou https://projetsls.fr/JeanForteroche/index.php?action=admin
+Depuis cette page vous pouvez :
+
+- Créer un nouveau post : https://projetsls.fr/JeanForteroche/index.php?action=postCreation
+
+- Gérer vos différents posts : https://projetsls.fr/JeanForteroche/index.php?action=adminPost
+( a noter : deux boutons sont disponibles pour chaque post : Modifier votre post a gauche et supprimer le post a droite)
+
+- Gérer votre biographie et contact (page a propos) : https://projetsls.fr/JeanForteroche/index.php?action=adminBio
+
+- Gérer les commentaires signalés : https://projetsls.fr/JeanForteroche/index.php?action=viewReportedComments
+( a noter : chaque commentaire possède deux boutons : la croix a gauche permet d'autoriser/ de désignaler le commentaire associé, la poubelle a droite permet de l'enlever de votre serveur)
