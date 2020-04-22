@@ -15,6 +15,32 @@
     </head>
         
     <body>
+
+        <header>
+            <nav class="d-flex justify-content-center text-center">
+                <ul class="container nav row">
+                    <div class="col-12 d-flex flex-wrap">
+                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
+                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
+                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                    </div>   
+                </ul>
+            </nav>
+        </header>
+    
         <?= $content ?>
+
+        <footer class="container navbar">
+            <div class="container row d-flex text-center justify-content-center m-auto">
+                <ul id="social_networks" class="d-flex col-12 col-sm-6 justify-content-around list-unstyled p-0">
+                    <li><a href=""><i class="fab fa-twitter fa-2x"></i></a></li>
+                    <li><a href=""><i class="fab fa-facebook fa-2x"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram fa-2x"></i></a></li>
+                </ul>
+                <a class="col-6 col-sm-3 p-0" href="?action=mentions">Mentions légales</a>
+                <a class="col-6 col-sm-3 p-0" href="?action=login">Connection</a>
+                <p class="col-12 mb-0 font-italic p-0">Copyright © All rights reserved. SPA Chamalières 2020</p>
+            </div>
+        </footer>
     </body>
 </html>
