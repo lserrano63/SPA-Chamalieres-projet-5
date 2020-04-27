@@ -6,5 +6,5 @@ if (isset($_GET['action']))
 {
     require('Views/router.php');
 } else {
-    require('Views/indexView.php');
+    require('Views/Public Views/indexView.php');
 }
