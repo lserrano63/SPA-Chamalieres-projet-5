@@ -5,19 +5,19 @@ class Map
     this.map = L.map('map').setView([47.19, 2.87], 7);
     this.markers = L.markerClusterGroup();
     this.greenIcon = L.icon({
-      iconUrl: 'pics/marker.png',
+      iconUrl: 'images/marker.png',
       iconSize:     [25, 41], 
       iconAnchor: [13,41],
       className : 'green_marker',
     });
     this.redIcon = L.icon({
-      iconUrl: 'pics/marker.png',
+      iconUrl: 'images/marker.png',
       iconSize:     [25, 41], 
       iconAnchor: [13,41],
       className : 'red_marker',
     });
     this.chosenIcon = this.greenIcon;
-    this.url = 'https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=4348906054be78750668c460dd35c6b5f3650c90';
+    this.url = ;
     this.initialisation();
   }
 
