@@ -24,3 +24,4 @@
 <?php $content = ob_get_clean(); ?>
 <?php require('Views/template.php'); ?>
 <script src="scripts/map.js"></script>
+<script src="scripts/slider.js"></script>
