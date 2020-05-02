@@ -57,10 +57,11 @@ class Map
         this.chosenIcon = this.blueIcon;
       }
       let marker = L.marker([data[i].Lat_coord,data[i].Long_coord], {icon :this.chosenIcon});
-      this.markers.addLayer(marker); //adds the given layer to the map
+      //this.map.addLayer(marker); //adds the given layer to the map
+      marker.addTo(this.map);
       //marker.bindPopup(""); // Add a popup to every markers
     }
-    this.markers.addTo(this.map);
+    //this.markers.addTo(this.map);
   }
 }
 let mymap = new Map();
