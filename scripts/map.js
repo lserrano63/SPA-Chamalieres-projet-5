@@ -59,9 +59,8 @@ class Map
       let marker = L.marker([data[i].Lat_coord,data[i].Long_coord], {icon :this.chosenIcon});
       //this.map.addLayer(marker); //adds the given layer to the map
       marker.addTo(this.map);
-      //marker.bindPopup(""); // Add a popup to every markers
+      marker.bindPopup("<center><b>" + data[i].name+"</b></center>" + data[i].adress +"</br>"+ "Numéro de téléphone : " + data[i].telephone); // Add a popup to every markers
     }
-    //this.markers.addTo(this.map);
   }
 }
 let mymap = new Map();
