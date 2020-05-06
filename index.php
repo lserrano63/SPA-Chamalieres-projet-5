@@ -1,6 +1,7 @@
 <?php
 require ('Models/postManager.php');
 require ('Models/commentManager.php');
+require ('Models/animalManager.php');
 
 if (isset($_GET['action']))
 {
