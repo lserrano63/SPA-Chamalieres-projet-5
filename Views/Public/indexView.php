@@ -15,8 +15,8 @@
     <section class="container rounded bg-secondary pt-3 pb-1">
     <?php 
         $postManager = new PostManager();
-        $req = $postManager->getPosts();
-        while ($data = $req->fetch()) 
+        $posts = $postManager->getPosts();
+        foreach ($posts as $data) 
         {
             ?>
             <article class="container bg-light">
@@ -27,7 +27,6 @@
             </article>
             <?php
         }
-            $req->closeCursor();
             ?>
     </section>
     <aside id="map">
@@ -48,7 +47,7 @@
         ?>
 
 		<figure class="slider_image not_visible">
-			<img src="images/animals/<?= $data['name'];?>.png">
+			<img src="images/animals/<?= $data['id'];?>.png">
 			<figcaption><a href=""><?= $data['name'];?></a></figcaption>
 		</figure>
         <?php
@@ -60,7 +59,7 @@
 	<div id="slider_buttons">
 		<button id="button_left"><i class="fas fa-arrow-circle-left fa-3x"></i></button>
 		<button id="button_right"><i class="fas fa-arrow-circle-right fa-3x"></i></button>
-			<button id="button_pause"><i class="fas fa-pause-circle fa-3x"></i></button>
+		<button id="button_pause"><i class="fas fa-pause-circle fa-3x"></i></button>
 		<button id="button_play" class="not_visible"><i class="fas fa-play-circle fa-3x"></i></button>
 	</div>
 </section>
