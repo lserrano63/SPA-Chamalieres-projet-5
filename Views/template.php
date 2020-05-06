@@ -21,9 +21,9 @@
             <nav class="d-flex justify-content-center text-center">
                 <ul class="container nav row">
                     <div class="col-12 d-flex flex-wrap">
-                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
-                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
-                        <li class="nav-item col-sm-6 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
                     </div>   
                 </ul>
             </nav>
