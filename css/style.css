@@ -59,6 +59,7 @@ figcaption {
 	border: none;
 	padding:0;
 	color:#3D9970;
+	box-sizing: content-box;
 }
 #button_left:focus, #button_right:focus, #button_pause:focus, #button_play:focus{
 	outline: none;
