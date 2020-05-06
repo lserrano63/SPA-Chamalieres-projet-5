@@ -12,13 +12,57 @@
 <?php ob_start(); ?>
 
 <section id="infos_and_map">
-    <section id="infos">
+    <section class="container rounded bg-secondary pt-3 pb-1">
+    <?php 
+        $postManager = new PostManager();
+        $req = $postManager->getPosts();
+        while ($data = $req->fetch()) 
+        {
+            ?>
+            <article class="container bg-light">
+                <h2 class="text-center"><?= $data['title'];?></h2>
+                <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
+                <p><?= substr(nl2br($data['post']),0,300);?> ...<br>
+                <a class="btn btn-primary mb-1" href="?action=viewPost&id=<?= $data['id']; ?>">Voir plus</a></p>    
+            </article>
+            <?php
+        }
+            $req->closeCursor();
+            ?>
     </section>
     <aside id="map">
     </aside>
 </section>
 
-<section id="diaporama">
+<section id="slider">
+	<div id="slider_all_images">
+        <figure class="slider_image">
+			<img src="images/">
+			<figcaption>Voici les nouveaux arrivants au refuge :</figcaption>
+		</figure>
+    <?php 
+    $animalManager = new AnimalManager();
+    $req = $animalManager->sliderAnimals();
+    while ($data = $req->fetch()) 
+    {
+        ?>
+
+		<figure class="slider_image not_visible">
+			<img src="images/animals/<?= $data['name'];?>.png">
+			<figcaption><a href=""><?= $data['name'];?></a></figcaption>
+		</figure>
+        <?php
+    }
+        $req->closeCursor();
+    ?>
+	</div>
+		
+	<div id="slider_buttons">
+		<button id="button_left"><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+		<button id="button_right"><i class="fas fa-arrow-circle-right fa-3x"></i></button>
+			<button id="button_pause"><i class="fas fa-pause-circle fa-3x"></i></button>
+		<button id="button_play" class="not_visible"><i class="fas fa-play-circle fa-3x"></i></button>
+	</div>
 </section>
 
 <?php $content = ob_get_clean(); ?>
