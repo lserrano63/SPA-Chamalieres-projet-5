@@ -24,16 +24,16 @@ if($action == 'spajson')
         echo 'Erreur : aucun identifiant de billet envoyé';
     } 
 } elseif ($action=="mentions"){
-    require('Views/mentions.php');
+    require('Views/Public/mentions.php');
 }  elseif (isset($_SESSION['connected']) && ($_SESSION['connected'] == true)){
     if ($action == 'disconnect') {
         $_SESSION = array();
         session_destroy();
         header('Location: index.php');
     } elseif ($action == 'admin') {
-        require('Views/adminView.php');
+        require('Views/Private/adminView.php');
     } elseif ($action == 'postCreation') {
-        require('Views/adminPostCreation.php');
+        require('Views/Private/adminPostCreation.php');
     } elseif ($action == 'addPost') {
         if (!empty($_POST['title']) && !empty($_POST['post'])) 
         {
@@ -41,7 +41,7 @@ if($action == 'spajson')
             addOnePost($_POST['title'], $_POST['post']);
         }
     } elseif ($action == 'viewComments') {
-        require('Views/adminManageComments.php');
+        require('Views/Private/adminManageComments.php');
     } elseif ($action == 'removeComment') {
         if (isset($_GET['id']) && $_GET['id'] > 0){
             require('Controllers/backend.php');
@@ -50,7 +50,7 @@ if($action == 'spajson')
         }
     }
     elseif ($action == 'adminPost') {
-        require('Views/adminPostView.php');
+        require('Views/Private/adminPostView.php');
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModify')) {
         require('Controllers/frontend.php');
         require('Controllers/backend.php');
