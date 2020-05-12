@@ -21,9 +21,23 @@
             <nav class="d-flex justify-content-center text-center">
                 <ul class="container nav row">
                     <div class="col-12 d-flex flex-wrap">
+                    <?php 
+                        if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
+                        ?>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                        <li class="nav-item col-sm-3 col-6"><a class="nav-link" href="?action=admin">Administration</a></li>
+                        <li class="nav-item col-sm-3 col-6"><a class="nav-link" href="?action=disconnect">Déconnexion</a></li>
+                        <?php    
+                        } else {
+                        ?>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                    <?php        
+                        }
+                    ?>
                     </div>   
                 </ul>
             </nav>
@@ -31,7 +45,7 @@
     
         <?= $content ?>
 
-        <footer class="container navbar">
+        <footer class="container navbar page-footer">
             <div class="container row d-flex text-center justify-content-center m-auto">
                 <ul id="social_networks" class="d-flex col-12 col-sm-6 justify-content-around list-unstyled p-0">
                     <li><a href=""><i class="fab fa-twitter fa-2x"></i></a></li>
