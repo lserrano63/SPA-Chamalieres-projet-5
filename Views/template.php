@@ -27,8 +27,8 @@
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
-                        <li class="nav-item col-sm-3 col-6"><a class="nav-link" href="?action=admin">Administration</a></li>
-                        <li class="nav-item col-sm-3 col-6"><a class="nav-link" href="?action=disconnect">Déconnexion</a></li>
+                        <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="?action=admin">Administration</a></li>
+                        <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="?action=disconnect">Déconnexion</a></li>
                         <?php    
                         } else {
                         ?>
@@ -52,9 +52,20 @@
                     <li><a href=""><i class="fab fa-facebook fa-2x"></i></a></li>
                     <li><a href=""><i class="fab fa-instagram fa-2x"></i></a></li>
                 </ul>
-                <a class="col-6 col-sm-3 p-0" href="?action=mentions">Mentions légales</a>
-                <a class="col-6 col-sm-3 p-0" href="?action=login">Connection</a>
+                <?php 
+                if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
+                ?>
+                <a class="col-6 col-sm-6 p-0" href="?action=mentions">Mentions légales</a>
                 <p class="col-12 mb-0 font-italic p-0">Copyright © All rights reserved. SPA Chamalières 2020</p>
+                <?php
+                } else {
+                ?>
+                    <a class="col-6 col-sm-6 p-0" href="?action=mentions">Mentions légales</a>
+                    <p class="col-12 mb-0 font-italic p-0">Copyright © All rights reserved. SPA Chamalières 2020</p>
+                    <a class="col-6 col-sm-3 p-0" href="?action=login">Connection</a>
+                <?php        
+                   }
+                ?>   
             </div>
         </footer>
     </body>
