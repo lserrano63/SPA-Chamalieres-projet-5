@@ -25,15 +25,9 @@ function addOneComment($postId, $author, $comment)
     }
 }
 
-/*function login()
+function login($username, $password)
 {
-    if (isset($_POST["name"])  == $login["name"]){
-        if (isset($_POST["password"]) && password_verify($_POST["password"], '$login["password"]')){			
-            $_SESSION['connected'] = true;
-            header('Location: index.php');
-        } else {
-            echo 'Mot de passe non valide';
-        }
-    }
+    $userManager = new UserManager();
+    $login = $userManager->connection($username);
+
 }
-*/
