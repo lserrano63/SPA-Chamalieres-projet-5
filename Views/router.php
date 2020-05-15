@@ -26,18 +26,9 @@ if($action == 'spajson')
 } elseif ($action=="mentions"){
     require('Views/Public/mentions.php');
 } elseif ($action=="login"){
-    /*if (isset($_POST["name"]) && $_POST["name"] == $resultat['user'] ){
-        if (isset($_POST["password"]) && password_verify($_POST["password"], '' . $resultat['password'] )){			
-            $_SESSION['connected'] = true;
-            header('Location: index.php');
-        } else {
-            echo 'Mot de passe non valide';
-        }
-    }*/
-    if(!empty($_POST['name']) && !empty($_POST['password'])){
-        $password = password_verify($_POST["password"], '' . $resultat['password'] );
-        require('Controllers/frontend.php');
-        login($_POST['name'], $password);
+    if (isset($_POST["name"]) && isset($_POST["password"])) {	
+            require('Controllers/frontend.php');
+            login($_POST['name'], $_POST['password']);
     } else {
         require('Views/Public/login.php');
     }
