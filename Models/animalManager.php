@@ -21,7 +21,7 @@ class AnimalManager extends Manager {
     public function addAnimal($name, $description, $type, $age, $sexe)
     {
         $db = $this->dbConnection();
-        $reqAnimal = $db->prepare('INSERT INTO animals(name, description, date, type, age, sexe) VALUES(?, ?, NOW()), ?, ?,?');
+        $reqAnimal = $db->prepare('INSERT INTO animals(`id`, `name`, `description`, `date`, `type`, `age`, `sexe`) VALUES(NULL, ?, ?, NOW(), ?, ?,?)');
         $addanAnimal = $reqAnimal->execute(array($name, $description, $type, $age, $sexe));
         return $addanAnimal;
     }
