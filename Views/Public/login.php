@@ -5,6 +5,10 @@
 <section id="login" class="container mt-4">
 	<div class="card card-container">
 		<h2 class="card-header">Connexion</h2>
+		<?php if (isset($error)){
+			echo '<h3>' . $error . '</h3>';
+		}
+		?>
 		<div class="card-body">
 			<div class="login-form">
 				<form action="?action=login" method="post">

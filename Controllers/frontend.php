@@ -25,9 +25,21 @@ function addOneComment($postId, $author, $comment)
     }
 }
 
-function login($username, $password)
+function login($name, $password)
 {
     $userManager = new UserManager();
-    $login = $userManager->connection($username);
-
+    $login = $userManager->connection($name, $password);
+    if ($login === false) {
+        $error = "Utilisateur inconnu ou mot de passe erroné";
+    }
+    else {
+       
+        if (password_verify($password, $login['password'])){
+            $_SESSION['connected'] = true;
+            header('Location: index.php');
+        } else {
+            $error = "Utilisateur inconnu ou mot de passe erroné";
+        }
+    }
+    require('Views/Public/login.php');
 }
