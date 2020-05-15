@@ -14,9 +14,9 @@
             <p><?= substr(nl2br($data['description']),0,400);?></p>
             <div class="text-center">
                 <a href="?action=adminAnimalModify&id=<?= $data['id']; ?>" title="Modifier la fiche" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                <a href="?action=adminAnimalDelete&id=<?= $data['id']; ?>" title="Supprimer la fiche" class="btn btn-primary" data-toggle="modal" data-target="#modal"><i class="far fa-trash-alt"></i></a>
+                <a href="?action=adminAnimalDelete&id=<?= $data['id']; ?>" title="Supprimer la fiche" class="btn btn-primary" data-toggle="modal" data-target="#modal_<?= $data['id']; ?>"><i class="far fa-trash-alt"></i></a>
             </div>
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal_<?= $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
