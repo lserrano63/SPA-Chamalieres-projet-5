@@ -13,6 +13,19 @@ function viewPost(){
     }
 }
 
+function viewAnimal(){
+    $animalManager = new AnimalManager();
+    $commentManager = new CommentManager();
+    if (isset($_GET['id']) && $_GET['id'] > 0) {
+        $animal = $animalManager->getAnimal($_GET['id']);
+        $comments = $commentManager->getAnimalComments($_GET['id']);
+        require('Views/Public/animalView.php');
+    }
+    else {
+        echo 'Erreur : aucun identifiant de billet envoyé';
+    }
+}
+
 function addOneComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
@@ -22,6 +35,18 @@ function addOneComment($postId, $author, $comment)
     }
     else {
         header('Location: index.php?action=viewPost&id=' . $postId);
+    }
+}
+
+function addOneCommentFromAnimalPage($animalId, $author, $comment)
+{
+    $commentManager = new CommentManager();
+    $addaComment = $commentManager->addCommentAnimal($animalId, htmlspecialchars($author), htmlspecialchars($comment));
+    if ($addaComment === false) {
+        die('Impossible d\'ajouter le commentaire !');
+    }
+    else {
+        header('Location: index.php?action=viewAnimal&id=' . $animalId);
     }
 }
 

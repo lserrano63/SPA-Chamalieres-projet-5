@@ -2,6 +2,14 @@
 require_once('Manager.php');
 class AnimalManager extends Manager {
 
+    public function getAllAnimals()
+    {
+        $db = $this->dbConnection();
+        $req = $db->query('SELECT id, name, description, DATE_FORMAT(date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr, type, age, sexe FROM animals ');
+        $allAnimals = $req->fetchAll();
+        return $allAnimals;
+    }
+
     public function getAnimal($animal_id)
     {
         $db = $this->dbConnection();
@@ -54,5 +62,12 @@ class AnimalManager extends Manager {
         $req = $db->query('SELECT id, name, description, DATE_FORMAT(date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr, type, age, sexe FROM animals ORDER BY date ');
         $animals = $req->fetchAll();
         return $animals;
+    }
+
+    public function getLastAnimal()
+    {
+        $db = $this->dbConnection();
+        $req = $db->query('SELECT id FROM animals ORDER BY date DESC LIMIT 1');
+        return $req;
     }
 }
