@@ -23,6 +23,26 @@ if($action == 'spajson')
     else {
         echo 'Erreur : aucun identifiant de billet envoyé';
     } 
+} elseif($action == 'viewAnimal')
+{
+    require('Controllers/frontend.php');
+    viewAnimal();
+} elseif($action == 'viewAnimals')
+{
+    require('Views/Public/animalsView.php');
+} elseif ($action == 'addCommentAnimal') 
+{
+    if (isset($_GET['id']) && $_GET['id'] > 0) 
+    {
+        if (!empty($_POST['author']) && !empty($_POST['comment'])) 
+        {
+            require('Controllers/frontend.php');
+            addOneCommentFromAnimalPage($_GET['id'], $_POST['author'], $_POST['comment']);
+        }
+    }
+    else {
+        echo 'Erreur : aucun identifiant de billet envoyé';
+    }
 } elseif ($action=="mentions"){
     require('Views/Public/mentions.php');
 } elseif ($action=="login"){
