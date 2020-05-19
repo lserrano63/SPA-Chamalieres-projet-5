@@ -4,7 +4,7 @@ require ('Models/commentManager.php');
 require ('Models/animalManager.php');
 require ('Models/userManager.php');
 session_start();
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 if (isset($_GET['action']))
 {
