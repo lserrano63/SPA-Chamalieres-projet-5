@@ -66,6 +66,13 @@ function addOneAnimal($name, $description, $type, $age, $sexe)
     }
 }
 
+function changeImageNameAndLocation()
+{
+    if (isset($_FILES['animal_image']['tmp_name'])) {
+        copy($_FILES['animal_image']['tmp_name'], $_FILES['animal_image']['name']);
+    }
+}
+
 function modifyOneAnimal($name, $description, $type, $age, $sexe, $animal_id)
 {
     $animalManager = new AnimalManager();
