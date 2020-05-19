@@ -47,7 +47,7 @@
         ?>
 
 		<figure class="slider_image not_visible">
-			<img src="images/animals/<?= $data['id'];?>.png">
+			<img src="images/animals/<?= $data['id'];?>.jpg">
 			<figcaption><a href=""><?= $data['name'];?></a></figcaption>
 		</figure>
         <?php
