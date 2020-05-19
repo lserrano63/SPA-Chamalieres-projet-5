@@ -26,7 +26,7 @@
                         ?>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
-                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=viewAnimals">Nos animaux</a></li>
                         <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="?action=admin">Administration</a></li>
                         <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="?action=disconnect">Déconnexion</a></li>
                         <?php    
@@ -34,7 +34,7 @@
                         ?>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="index.php">Accueil</a></li>
                         <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=contact">Contact</a></li>
-                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=research">Nos animaux</a></li>
+                        <li class="nav-item col-sm-4 col-4"><a class="nav-link" href="?action=viewAnimals">Nos animaux</a></li>
                     <?php        
                         }
                     ?>
