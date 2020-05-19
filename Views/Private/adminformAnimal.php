@@ -6,7 +6,7 @@
         <h3 class="card-header">Nouvelle fiche animale :</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=addAnimal" method="post">
+                <form action="index.php?action=addAnimal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Nom :</label>
                         <input name="name" type="text" id="name" class="form-control" required/>
@@ -63,6 +63,16 @@
                             <option value="male">Male</option>
                             <option value="femelle">Femelle</option>
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="animal_image">Veuillez mettre une image de l'animal :</label>
+                        <input type="file" id="animal_image" name="animal_image" accept="image/jpg, image/jpeg" required>
+
+                        <?php if(exif_imagetype($_POST['animal_image']) != IMAGETYPE_JPG)
+                        {
+                            echo"Veuillez mettre une image jpg";
+                        }?>
                     </div>
 
                     <input type="submit" name="send_post" class="btn btn-primary" value="Envoyer"/>
