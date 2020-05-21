@@ -1,0 +1,17 @@
+{
+    "name": "boobs/spa-chamalieres",
+    "description": "projet Oc",
+    "type": "project",
+    "authors": [
+        {
+            "name": "lserrano63",
+            "email": "55395444+lserrano63@users.noreply.github.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\" : "MVC/"
+        }
+    },
+    "require": {}
+}
