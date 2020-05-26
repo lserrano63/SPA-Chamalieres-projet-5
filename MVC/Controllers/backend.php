@@ -34,17 +34,31 @@ class BackEndController {
         $commentManager->removeAllCommentsFromPost($post_id);
     }
 
+    public function deleteOneAnimal($animal_id)
+    {
+        $animalManager = new AnimalManager();
+        $animalManager->removeAnimal($animal_id);
+        $commentManager = new CommentManager();
+        $commentManager->removeAllCommentsFromAnimalPost($animal_id);
+    }
+
     public function removeComment($comment_id)
     {
         $commentManager = new CommentManager();
         $commentManager->removeComment($comment_id);
     }
 
+    public function acceptComment($comment_id)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->acceptComment($comment_id);
+    }
+    
     public function viewPostAdmin(){
         $postManager = new PostManager();
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $postAdmin = $postManager->getPost($_GET['id']);
-            require('Views/Private/adminModify.php');
+            require('MVC/Views/Private/adminModify.php');
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
@@ -55,7 +69,7 @@ class BackEndController {
         $animalManager = new AnimalManager();
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $animalAdmin = $animalManager->getAnimal($_GET['id']);
-            require('Views/Private/adminAnimalModify.php');
+            require('MVC/Views/Private/adminAnimalModify.php');
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
@@ -87,17 +101,4 @@ class BackEndController {
         $animalManager->modifyAnimal($name, $description, $type, $age, $sexe, $animal_id);
     }
 
-    public function deleteOneAnimal($animal_id)
-    {
-        $animalManager = new AnimalManager();
-        $animalManager->removeAnimal($animal_id);
-        $commentManager = new CommentManager();
-        $commentManager->removeAllCommentsFromPost($animal_id);
-    }
-
-    /*function removeComment($comment_id) ANIMAL comment a faire en commentmanagaer
-    {
-        $commentManager = new CommentManager();
-        $commentManager->removeComment($comment_id);
-    }*/
 }

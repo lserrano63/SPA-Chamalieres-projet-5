@@ -15,7 +15,7 @@ class FrontEndController {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $post = $postManager->getPost($_GET['id']);
             $comments = $commentManager->getComments($_GET['id']);
-            require('Views/Public/postView.php');
+            require('MVC/Views/Public/postView.php');
         }
         else {
             echo 'Erreur : aucun identifiant de billet envoyé';
@@ -77,5 +77,11 @@ class FrontEndController {
             }
         }
         require('MVC/Views/Public/login.php');
+    }
+
+    public function report($comment_id)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->report($comment_id);
     }
 }
