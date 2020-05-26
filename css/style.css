@@ -76,3 +76,20 @@ figcaption {
 	border:1px solid #3D9970;
 	background-color: #3D9970;
 }
+
+/* Comments button report */
+.comment .fa-ban {
+    position: absolute;
+    top:0;
+    right:10%;
+    display:none;
+}
+.comment:hover .fa-ban{
+    display:inline;
+}
+#comment input {
+    border:none;
+}
+#check:focus{
+    outline: none;
+}
