@@ -18,7 +18,9 @@
                 <div id="comment" class="comment position-relative">
                     <p><strong><?= htmlspecialchars($comment['author']); ?></strong> le <?= $comment['comment_date_fr']; ?></p>
                     <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
-            <?php
+                    <a id="report_button" href="index.php?action=reportedCommentAnimal&id=<?= $comment['id']?>&animal_id=<?= $animal['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
+                </div>
+            <?php   
             }
             ?>
     </section>

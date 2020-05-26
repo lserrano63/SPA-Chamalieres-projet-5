@@ -20,6 +20,8 @@
                 <div id="comment" class="comment position-relative">
                     <p><strong><?= htmlspecialchars($comment['author']); ?></strong> le <?= $comment['comment_date_fr']; ?></p>
                     <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
+                    <a id="report_button" href="index.php?action=reportedCommentPost&id=<?= $comment['id']?>&post_id=<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
+                </div>
             <?php
             }
             ?>
