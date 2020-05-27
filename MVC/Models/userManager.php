@@ -10,4 +10,12 @@ class UserManager extends Manager{
         $resultat = $req->fetch();
         return $resultat;
     }
+
+    public function addAdmin($name, $password, $email)
+    {
+        $db = $this->dbConnection();
+        $reqAdmin = $db->prepare('INSERT INTO users(name, password, email) VALUES(?, ?, ?)');
+        $addanAdmin = $reqAdmin->execute(array($name, $password, $email));
+        return $addanAdmin;
+    }
 }

@@ -103,6 +103,10 @@ if($action == 'spajson')
         }
     } elseif ($action == 'adminRights') {
         require('MVC/Views/Private/adminManageRights.php');
+    } elseif ($action == 'addRights') {
+        if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email'])) {
+            $backEndController->addOneAdmin($_POST['name'], $_POST['password'], $_POST['email']);
+        }
     } elseif ($action == 'adminPost') {
         require('MVC/Views/Private/adminPostView.php');
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModify')) {

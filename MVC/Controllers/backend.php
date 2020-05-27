@@ -79,12 +79,24 @@ class BackEndController {
     public function addOneAnimal($name, $description, $type, $age, $sexe)
     {
         $animalManager = new AnimalManager();
-        $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);
+        $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);   
         if ($addanAnimal === false) {
             die('Impossible de créer la fiche animale !');
         }
         else {
             header('Location: index.php');
+        }
+    }
+
+    public function addOneAdmin($name, $password, $email)
+    {
+        $userManager = new UserManager();
+        $addanAdmin = $userManager->addAdmin($name, password_hash($password, PASSWORD_DEFAULT), $email);
+        if ($addanAdmin === false) {
+            die('Impossible de créer le compte administrateur!');
+        }
+        else {
+            header('Location: index.php?action=admin');
         }
     }
 
