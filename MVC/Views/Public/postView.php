@@ -22,8 +22,68 @@
                     <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
                     <a id="report_button" href="index.php?action=reportedCommentPost&id=<?= $comment['id']?>&post_id=<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
                 </div>
-            <?php
+
+            <?php 
             }
+            /*
+            $commentManager = new \App\Models\CommentManager();
+            $animals = $commentManager->paginationCommentsPost();
+
+            $numberMessages = $paginationPost['comTotal'];
+            $messagePerPage = 4;
+            $totalPages = ceil($numberMessages / $messagePerPage);
+
+            if(isset($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+                $pageActive = intval($_GET['page']);
+            }
+            else {
+                $pageActive = 1;
+            }
+
+            $firstMessage = ($pageActive - 1) * $messagePerPage;
+
+
+
+            ?>
+
+            <nav class="row text-center">
+                <ul class="pagination">
+                    <?php
+                    if ($pageActive != 1)
+                    {
+                    ?>
+                    <li>
+                        <a href="index.php?action=viewPost&id=<?= $post['id']?>&page=<?= $pageActive -1;?>">
+                        <button id="button_left"><i class="fas fa-arrow-circle-left fa-3x"></i></button></a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    for ($i = 1; $i <= $totalPages; $i++) {
+                        echo '<li';
+                        if ($pageActive == $i) {
+                            echo ' class="page_active"';
+                        }
+                        echo '><a href="index.php?action=viewPost&id='. $post['id'].'&page=' . $i . '">' . $i . '</a></li>';   
+                    }
+                    ?>
+
+                    <?php
+                    if ($pageActive != $totalPages)
+                    {
+                    ?>
+                    <li>
+                        <a href="index.php?action=viewPost&id=<?= $post['id']?>&page=<?= $pageActive + 1;?>">
+                        <button id="button_right"><i class="fas fa-arrow-circle-right fa-3x"></i></button></a>
+                    </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </nav>*/
+            
             ?>
     </section>
     <section class="container mb-2 ">

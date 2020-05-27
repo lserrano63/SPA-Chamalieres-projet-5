@@ -2,11 +2,11 @@
 require_once('Manager.php');
 class CommentManager extends Manager {
 
-    public function getComments($postId)
+    public function getComments($postId/*,$firstMessage,$messagePerPage*/)
     {
         $db = $this->dbConnection();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($postId));
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC /*LIMIT '.$firstMessage.', '.$messagePerPage.'*/');
+    $comments->execute(array($postId/*,$firstMessage,$messagePerPage*/));
         return $comments;
     }
 
@@ -89,5 +89,22 @@ class CommentManager extends Manager {
         $reportedCommentsAnimals = $reportComAnimals->fetchAll();
         return $reportedCommentsAnimals;
     }
-    
+
+    /*
+    public function paginationCommentsPost()
+    {
+        $db = $this->dbConnection();
+        $page = $db->query('SELECT COUNT(*) AS comTotal FROM comments WHERE (post_id !=0 AND animal_id = 0)');
+        $paginationPost = $page->fetch();
+        return $paginationPost;
+    }
+
+    public function paginationCommentsAnimal()
+    {
+        $db = $this->dbConnection();
+        $pag = $db->query('SELECT COUNT(*) AS comTotal FROM comments WHERE (post_id = 0 AND animal_id != 0)');
+        $paginationAni = $pag->fetch();
+        return $paginationAni;
+    }
+    */
 }
