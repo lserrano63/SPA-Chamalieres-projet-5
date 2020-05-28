@@ -79,6 +79,7 @@ class BackEndController {
     public function addOneAnimal($name, $description, $type, $age, $sexe)
     {
         $animalManager = new AnimalManager();
+        /* FAIRE CHECK FILES I F*/
         $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);   
         if ($addanAnimal === false) {
             die('Impossible de créer la fiche animale !');

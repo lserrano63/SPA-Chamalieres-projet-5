@@ -76,8 +76,9 @@ if($action == 'spajson')
     } elseif ($action == 'formAnimal') {
         require('MVC/Views/Private/adminformAnimal.php');
     } elseif ($action == 'addAnimal') {
-        if (!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['type']) && !empty($_POST['age']) && !empty($_POST['sexe'])){
+        if (!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['type']) && !empty($_POST['age']) && !empty($_POST['sexe'])  && !empty($_FILES['animal_image'])){
             $backEndController->addOneAnimal($_POST['name'], $_POST['description'], $_POST['type'], $_POST['age'], $_POST['sexe']);
+            require('MVC/Views/Private/adminformAnimal.php');
         }
     } elseif ($action == 'adminAnimal') {
         require('MVC/Views/Private/adminAnimalView.php');
