@@ -19,6 +19,7 @@ class Map
     this.chosenIcon = this.greenIcon;
     this.url = "https://projetsls.fr/SPA-Chamalieres/index.php?action=spajson";
     this.initialisation();
+    this.RequestAllSpa();
   }
 
   initialisation() // Map's initalisation with Leaflet
@@ -31,7 +32,7 @@ class Map
     }).addTo(this.map);
   }
 
-  ajaxRequest()
+  RequestAllSpa()
   {
     let oXhr = new XMLHttpRequest(); // objects to interact with servers, without having to do a full page refresh.
     oXhr.onload = this.ajaxOnLoad.bind(this);
@@ -64,4 +65,3 @@ class Map
   }
 }
 let mymap = new Map();
-mymap.ajaxRequest();
