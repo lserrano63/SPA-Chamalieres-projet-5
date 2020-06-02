@@ -3,13 +3,31 @@ require_once('Manager.php');
 
 class PostManager extends Manager{
 
-    public function getPosts()
+    public function getPostsIndex()
     {
         $db = $this->dbConnection();
-        $req = $db->query('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT 0, 3');
+        $postsIndex = $req->fetchAll();
+        return $postsIndex;
+    }
+
+    /*public function getPosts($firstMessage,$messagePerPage)
+    {
+        $db = $this->dbConnection();
+        $req = $db->query('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT ?,?');
+        $posts = $req->fetchAll($firstMessage,$messagePerPage);
+        return $posts;
+    }*/
+
+    public function getPosts($firstMessage,$messagePerPage)
+    {
+        $db = $this->dbConnection();
+        $req = $db->prepare('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT LIMIT "?,?" ');
+        $req->execute(array($firstMessage,$messagePerPage));
         $posts = $req->fetchAll();
         return $posts;
     }
+
 
     public function getPost($postId)
     {
@@ -46,4 +64,21 @@ class PostManager extends Manager{
         $removePost = $removeaPost->execute(array($post_id));
         return $removePost;
     }
+
+    public function paginationPost()
+    {
+        $db = $this->dbConnection();
+        $page = $db->query('SELECT COUNT(*) AS total FROM posts');
+        $pagiPost = $page->fetch();
+        return $pagiPost;
+    }
+
+    /*public function getComments($postId,$firstMessage,$messagePerPage)
+    {
+        $db = $this->dbConnection();
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC /*LIMIT ?, ? ');
+        $comments->execute(array($postId,$firstMessage,$messagePerPage));
+        return $comments;
+    }*/
+
 }
