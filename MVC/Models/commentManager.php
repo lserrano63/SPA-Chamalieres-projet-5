@@ -90,21 +90,4 @@ class CommentManager extends Manager {
         return $reportedCommentsAnimals;
     }
 
-    /*
-    public function paginationCommentsPost()
-    {
-        $db = $this->dbConnection();
-        $page = $db->query('SELECT COUNT(*) AS comTotal FROM comments WHERE (post_id !=0 AND animal_id = 0)');
-        $paginationPost = $page->fetch();
-        return $paginationPost;
-    }
-
-    public function paginationCommentsAnimal()
-    {
-        $db = $this->dbConnection();
-        $pag = $db->query('SELECT COUNT(*) AS comTotal FROM comments WHERE (post_id = 0 AND animal_id != 0)');
-        $paginationAni = $pag->fetch();
-        return $paginationAni;
-    }
-    */
 }
