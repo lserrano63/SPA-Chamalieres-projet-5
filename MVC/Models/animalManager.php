@@ -20,6 +20,15 @@ class AnimalManager extends Manager {
         return $animal;
     }
 
+    public function lastAnimal()
+    {
+        $db = $this->dbConnection();
+        $req = $db->prepare('SELECT id FROM animals ORDER BY id DESC LIMIT 1');
+        $req->execute();
+        $lastanimal = $req->fetch();
+        return $lastanimal;
+    }
+
     public function sliderAnimals()
     {
         $db = $this->dbConnection();

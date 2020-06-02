@@ -68,11 +68,6 @@
                     <div class="form-group">
                     <label for="animal_image">Veuillez mettre une image de l'animal :</label>
                         <input type="file" id="animal_image" name="animal_image" accept="image/jpg, image/jpeg" required>
-
-                        <?php if(isset($_FILES['animal_image']) && exif_imagetype($_FILES['animal_image']) != IMAGETYPE_JPG)
-                        {
-                            echo"Veuillez mettre une image jpg";
-                        }?>
                     </div>
 
                     <input type="submit" name="send_post" class="btn btn-primary" value="Envoyer"/>
