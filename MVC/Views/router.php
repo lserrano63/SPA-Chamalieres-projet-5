@@ -11,6 +11,9 @@ if($action == 'spajson')
 } elseif($action == 'viewPost')
 {
     $frontEndController->viewPost();
+} elseif($action == 'viewPosts')
+{
+    require('MVC/Views/Public/postsView.php');
 } elseif ($action == 'addComment') 
 {
     if (isset($_GET['id']) && $_GET['id'] > 0) 
@@ -76,7 +79,7 @@ if($action == 'spajson')
     } elseif ($action == 'formAnimal') {
         require('MVC/Views/Private/adminformAnimal.php');
     } elseif ($action == 'addAnimal') {
-        if (!empty($_POST['name']) && !empty($_POST['description']) && !empty($_POST['type']) && !empty($_POST['age']) && !empty($_POST['sexe'])  && !empty($_FILES['animal_image'])){
+        if (!empty($_POST['name']) && !empty($_POST['description']) && isset($_POST['type']) && isset($_POST['age']) && isset($_POST['sexe'])  && !empty($_FILES['animal_image'])){
             $backEndController->addOneAnimal($_POST['name'], $_POST['description'], $_POST['type'], $_POST['age'], $_POST['sexe']);
             require('MVC/Views/Private/adminformAnimal.php');
         }
@@ -102,9 +105,15 @@ if($action == 'spajson')
             $backEndController->removeComment($_GET['id']);
             header('Location: index.php?action=viewComments');
         }
-    } elseif ($action == 'adminRights') {
+    } elseif ($action == 'manageRights') {
         require('MVC/Views/Private/adminManageRights.php');
     } elseif ($action == 'addRights') {
+        if (!empty($_POST['email'])) {
+            $backEndController->sendEmailCreationAdmin($_POST['email']);
+        }
+    } elseif ($action == 'newAdminUser') {
+        require('MVC/Views/Private/addAdmin.php');
+    } elseif ($action == 'accountCreated') {
         if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email'])) {
             $backEndController->addOneAdmin($_POST['name'], $_POST['password'], $_POST['email']);
         }
