@@ -8,7 +8,7 @@
         <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=formAnimal">Ajouter une fiche d'un animal</a></li>
         <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=adminAnimal">Administration des fiches animales</a></li>
         <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=viewComments">Gérer Commentaires</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=adminRights">Rôles utilisateurs</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=manageRights">Rôles utilisateurs</a></li>
     </ul>
 </section>
 
