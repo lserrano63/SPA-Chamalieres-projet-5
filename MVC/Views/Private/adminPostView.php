@@ -4,8 +4,8 @@
 <section class="container rounded bg-secondary mt-3 pt-1 pb-3">
 <?php 
     $postManager = new \App\Models\PostManager();
-    $posts = $postManager->getPosts();
-    foreach ($posts as $data) 
+    $postsIndex = $postManager->getPostsIndex();
+    foreach ($postsIndex as $data) 
     {
         ?>
         <article class="container bg-light mt-3 pb-2">
