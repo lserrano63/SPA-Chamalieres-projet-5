@@ -15,8 +15,8 @@
     <section class="container rounded bg-secondary pt-3 pb-1">
     <?php 
         $postManager = new \App\Models\PostManager();
-        $posts = $postManager->getPosts();
-        foreach ($posts as $data) 
+        $postsIndex = $postManager->getPostsIndex();
+        foreach ($postsIndex as $data) 
         {
             ?>
             <article class="container bg-light">
@@ -48,7 +48,7 @@
 
 		<figure class="slider_image not_visible">
 			<img src="images/animals/<?= $data['id'];?>.jpg">
-			<figcaption><a href=""><?= $data['name'];?></a></figcaption>
+			<figcaption><a href="?action=viewAnimal&id=<?= $data['id'];?>"><?= $data['name'];?></a></figcaption>
 		</figure>
         <?php
     }
