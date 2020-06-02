@@ -8,18 +8,9 @@
             <div class="login-form">
                 <form action="index.php?action=addRights" method="post">
                     <div class="form-group">
-                        <label for="name">Nom :</label>
-                        <input name="name" type="text" id="name" class="form-control" required/>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Mot de passe :</label>
-                        <input name="password" type="password" id="password" class="form-control" required/>
-                    </div>
-                    <div class="form-group">
                         <label for="email">Email :</label>
                         <input name="email" type="email" id="email" class="form-control" required/>
                     </div>
-
                     <input type="submit" name="send" class="btn btn-primary" value="Envoyer"/>
                 </form>
             </div>
