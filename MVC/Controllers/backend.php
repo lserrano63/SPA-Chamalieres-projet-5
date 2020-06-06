@@ -102,7 +102,8 @@ class BackEndController {
                     $animalManager = new AnimalManager();
                     $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);    
                     if ($addanAnimal === false) {
-                        die('Impossible de créer la fiche animale !');
+                        //die('Impossible de créer la fiche animale !');
+                        $errors = "Impossible de créer la fiche animale !";
                     }
                     else {
                         $lastanimal = $animalManager->lastAnimal();
@@ -142,10 +143,10 @@ class BackEndController {
     {
         $from = "spa.chamalieres.contact@gmail.com";
         $to = $email; 
-        $subject = "Création compte administrateur sur le site de la SPA de Chamlières"; 
+        $subject = "Création compte administrateur sur le site de la SPA de Chamalières"; 
         $message = 'Veuillez remplir le formulaire à l\'addresse suivante : https://projetsls.fr/SPA-Chamalieres/index.php?action=newAdminUser'; 
         $headers = "From:" . $from;
-        mail($to,$subject,$message, $headers);
+        mb_send_mail($to,$subject,$message, $headers);
         header('Location: index.php?action=admin');
     }
 
