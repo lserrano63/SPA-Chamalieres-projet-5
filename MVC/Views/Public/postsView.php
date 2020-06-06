@@ -7,7 +7,7 @@
         $pagiPost = $postManager->paginationPost();
 
         $numberPosts = $pagiPost['total'];
-        $messagePerPage = 3;
+        $messagePerPage = 2;
         $totalPages = ceil($numberPosts / $messagePerPage);
 
         if(isset($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
@@ -17,10 +17,7 @@
             $pageActive = 1;
         }
 
-        $firstMessage=($pageActive-1)*$messagePerPage;
-        echo $firstMessage;
-        echo $messagePerPage;
-        
+        $firstMessage=($pageActive-1)*$messagePerPage; 
 
         $posts = $postManager->getPosts($firstMessage,$messagePerPage);
         foreach ($posts as $data) 

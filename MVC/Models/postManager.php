@@ -22,8 +22,11 @@ class PostManager extends Manager{
     public function getPosts($firstMessage,$messagePerPage)
     {
         $db = $this->dbConnection();
-        $req = $db->prepare('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT LIMIT "?,?" ');
-        $req->execute(array($firstMessage,$messagePerPage));
+        $req = $db->prepare('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT :firstMessage, :messagePerPage ');
+        //$req->execute(array(intval($firstMessage),intval($messagePerPage)));
+        $req->bindParam(":firstMessage",$firstMessage,\PDO::PARAM_INT);
+        $req->bindParam(":messagePerPage",$messagePerPage,\PDO::PARAM_INT);
+        $req->execute();
         $posts = $req->fetchAll();
         return $posts;
     }
