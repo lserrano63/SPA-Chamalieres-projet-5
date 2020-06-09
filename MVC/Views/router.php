@@ -123,9 +123,9 @@ if($action == 'spajson')
         $backEndController->viewPostAdmin();
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModified')){
         $backEndController->modifyOnePost($_POST['title'], $_POST['post'], $_GET['id']);
-        header('Location: index.php?action=adminPost');
+        header('Location: index.php?action=adminPost&page=1');
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostDelete')){
         $backEndController->deleteOnePost($_GET['id']);
-        header('Location: index.php?action=adminPost');
+        header('Location: index.php?action=adminPost&page=1');
     }
 } 
