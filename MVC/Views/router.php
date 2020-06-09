@@ -58,7 +58,7 @@ if($action == 'spajson')
     require('MVC/Views/Public/mentions.php');
 } elseif ($action=="login"){
     if (isset($_POST["name"]) && isset($_POST["password"])) {	
-            $frontEndController->login($_POST['name'], $_POST['password']);
+        $frontEndController->login($_POST['name'], $_POST['password']);
     } else {
         require('MVC/Views/Public/login.php');
     }
@@ -108,14 +108,14 @@ if($action == 'spajson')
     } elseif ($action == 'manageRights') {
         require('MVC/Views/Private/adminManageRights.php');
     } elseif ($action == 'addRights') {
-        if (!empty($_POST['email'])) {
-            $backEndController->sendEmailCreationAdmin($_POST['email']);
+        if (!empty($_POST['email'])) { 
+            $backEndController->addOneAdmin($_POST['email'],$password, $_POST['email']);
         }
-    } elseif ($action == 'newAdminUser') {
-        require('MVC/Views/Private/addAdmin.php');
-    } elseif ($action == 'accountCreated') {
-        if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email'])) {
-            $backEndController->addOneAdmin($_POST['name'], $_POST['password'], $_POST['email']);
+    } elseif ($action == 'viewProfile') {
+        require('MVC/Views/Private/adminProfile.php');
+    } elseif ($action == 'modifyAdminProfile') {
+        if (!empty($_POST['password'])) {
+            $backEndController->modifyProfileAdmin($_POST['password'],$_SESSION['name']);
         }
     } elseif ($action == 'adminPost') {
         require('MVC/Views/Private/adminPostView.php');
