@@ -76,6 +76,19 @@ class BackEndController {
         }
     }
 
+    public function generatePassword($length) {
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $count = mb_strlen($chars);
+    
+        for ($i = 0; $i < $length; $i++) {
+            $result = '';
+            $index = rand(0, $count - 1);
+            $result .= mb_substr($chars, $index, 1);
+        }
+    
+        echo $result;
+    }
+
     public function addOneAnimal($name, $description, $type, $age, $sexe)
     {
         if(isset($_FILES["animal_image"])){
@@ -96,23 +109,19 @@ class BackEndController {
             }
 
             if(in_array($filetype, $allowed)){ //Checking if the extension is allowed
-                if(file_exists("images/animals/" . $_FILES["animal_image"]["name"])){ //Checking if the image is already in the folder with the same name
-                    echo $_FILES["animal_image"]["name"] . " existe déjà.";
-                } else { //If not we send the form data, we change the image's location and we rename it with the last entry on our database.
-                    $animalManager = new AnimalManager();
-                    $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);    
-                    if ($addanAnimal === false) {
-                        //die('Impossible de créer la fiche animale !');
-                        $errors = "Impossible de créer la fiche animale !";
-                    }
-                    else {
-                        $lastanimal = $animalManager->lastAnimal();
-                        move_uploaded_file($_FILES["animal_image"]["tmp_name"], "images/animals/" . $_FILES["animal_image"]["name"]);
-                        rename("images/animals/" . $_FILES["animal_image"]["name"], "images/animals/" . $lastanimal['id'] . ".jpg");
-                        echo "Votre fichier a été téléchargé.";
-                        //header('Location: index.php?action=viewAnimals');
-                    }
-                } 
+                $animalManager = new AnimalManager();
+                $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);    
+            if ($addanAnimal === false) {
+                    //die('Impossible de créer la fiche animale !');
+                    $errors = "Impossible de créer la fiche animale !";
+                }
+                else {
+                    $lastanimal = $animalManager->lastAnimal();
+                    move_uploaded_file($_FILES["animal_image"]["tmp_name"], "images/animals/" . $_FILES["animal_image"]["name"]);
+                    rename("images/animals/" . $_FILES["animal_image"]["name"], "images/animals/" . $lastanimal['id'] . ".jpg");
+                    echo "Votre fichier a été téléchargé.";
+                    //header('Location: index.php?action=viewAnimals');
+                }
             } else {
                 echo "Error: Il y a eu un problème de téléchargement. Veuillez réessayer."; 
             }
