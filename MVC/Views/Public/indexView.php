@@ -14,9 +14,7 @@
 <section id="infos_and_map">
 
     <section class="container rounded bg-secondary pt-3 pb-1">
-    <?php 
-        $backEndController = new \App\backend\BackEndController();
-        $backEndController->generatePassword(10);
+    <?php
         $postManager = new \App\Models\PostManager();
         $postsIndex = $postManager->getPostsIndex();
         foreach ($postsIndex as $data) 
