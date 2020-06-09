@@ -76,19 +76,6 @@ class BackEndController {
         }
     }
 
-    public function generatePassword($length) {
-        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        $count = mb_strlen($chars);
-    
-        for ($i = 0; $i < $length; $i++) {
-            $result = '';
-            $index = rand(0, $count - 1);
-            $result .= mb_substr($chars, $index, 1);
-        }
-    
-        echo $result;
-    }
-
     public function addOneAnimal($name, $description, $type, $age, $sexe)
     {
         if(isset($_FILES["animal_image"])){
@@ -132,10 +119,43 @@ class BackEndController {
 
     public function addOneAdmin($name, $password, $email)
     {
+        //First we are going to generate a random password
+        $length = 10;
+        $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $count = mb_strlen($chars); //return $chars's length
+    
+        for ($i = 0; $i < $length; $i++) {
+            $index = rand(0, $count - 1);
+            $result .= mb_substr($chars, $index, 1);
+        }
+
+        //And we up name password and email to the database
         $userManager = new UserManager();
-        $addanAdmin = $userManager->addAdmin($name, password_hash($password, PASSWORD_DEFAULT), $email);
+        $addanAdmin = $userManager->addAdmin($name, password_hash($result, PASSWORD_DEFAULT), $email);
         if ($addanAdmin === false) {
             die('Impossible de créer le compte administrateur!');
+        }
+        else {
+            //if all good we send an email for the recap and instructions
+            $from = "spa.chamalieres.contact@gmail.com";
+            $to = $email; 
+            $subject = "Création compte administrateur SPA Chamalières"; 
+            $message = 'Votre compte administrateur a bien été crée !
+            Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.
+            Votre mot de passe temporaire : ' . $result . '
+            Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/index.php?action=viewProfile'; 
+            $headers = "From:" . $from;
+            mb_send_mail($to,$subject,$message, $headers);
+            header('Location: index.php?action=admin');
+        }
+    }
+
+    public function modifyProfileAdmin($password)
+    {
+        $userManager = new UserManager();
+        $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
+        if ($adminModify === false) {
+            die('Ca marche pas');
         }
         else {
             header('Location: index.php?action=admin');
@@ -146,17 +166,6 @@ class BackEndController {
     {
         $animalManager = new AnimalManager();
         $animalManager->modifyAnimal($name, $description, $type, $age, $sexe, $animal_id);
-    }
-
-    public function sendEmailCreationAdmin($email)
-    {
-        $from = "spa.chamalieres.contact@gmail.com";
-        $to = $email; 
-        $subject = "Création compte administrateur sur le site de la SPA de Chamalières"; 
-        $message = 'Veuillez remplir le formulaire à l\'addresse suivante : https://projetsls.fr/SPA-Chamalieres/index.php?action=newAdminUser'; 
-        $headers = "From:" . $from;
-        mb_send_mail($to,$subject,$message, $headers);
-        header('Location: index.php?action=admin');
     }
 
 }

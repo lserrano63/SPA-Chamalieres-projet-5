@@ -18,4 +18,15 @@ class UserManager extends Manager{
         $addanAdmin = $reqAdmin->execute(array($name, $password, $email));
         return $addanAdmin;
     }
+
+    public function modifyProfile($password,$name)
+    {
+        $db = $this->dbConnection();
+        $modifyaPost = $db->prepare('UPDATE users SET password = :password WHERE name = :name');
+        $modifyPost = $modifyaPost->execute(array(
+            'password' => $password,
+            'name' => $name
+        ));
+    }
+
 }
