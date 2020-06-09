@@ -71,6 +71,7 @@ class FrontEndController {
         
             if (password_verify($password, $login['password'])){
                 $_SESSION['connected'] = true;
+                $_SESSION['name'] = $_POST["name"];
                 header('Location: index.php');
             } else {
                 $error = "Utilisateur inconnu ou mot de passe erroné";
