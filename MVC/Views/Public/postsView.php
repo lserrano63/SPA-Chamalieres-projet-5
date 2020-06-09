@@ -17,7 +17,7 @@
             $pageActive = 1;
         }
 
-        $firstMessage=($pageActive-1)*$messagePerPage; 
+        $firstMessage = ($pageActive-1) * $messagePerPage; 
 
         $posts = $postManager->getPosts($firstMessage,$messagePerPage);
         foreach ($posts as $data) 
@@ -44,8 +44,7 @@
             }
         }
         echo '</p>';
-?>
-          
+?>   
 </section>
 
 <?php $content = ob_get_clean(); ?>
