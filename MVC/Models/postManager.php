@@ -11,19 +11,10 @@ class PostManager extends Manager{
         return $postsIndex;
     }
 
-    /*public function getPosts($firstMessage,$messagePerPage)
-    {
-        $db = $this->dbConnection();
-        $req = $db->query('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT ?,?');
-        $posts = $req->fetchAll($firstMessage,$messagePerPage);
-        return $posts;
-    }*/
-
     public function getPosts($firstMessage,$messagePerPage)
     {
         $db = $this->dbConnection();
         $req = $db->prepare('SELECT id, title, post, DATE_FORMAT(post_date, \'%d/%m/%Y à %Hh%imin\') AS creation_date_fr FROM posts ORDER BY post_date DESC LIMIT :firstMessage, :messagePerPage ');
-        //$req->execute(array(intval($firstMessage),intval($messagePerPage)));
         $req->bindParam(":firstMessage",$firstMessage,\PDO::PARAM_INT);
         $req->bindParam(":messagePerPage",$messagePerPage,\PDO::PARAM_INT);
         $req->execute();
@@ -75,13 +66,5 @@ class PostManager extends Manager{
         $pagiPost = $page->fetch();
         return $pagiPost;
     }
-
-    /*public function getComments($postId,$firstMessage,$messagePerPage)
-    {
-        $db = $this->dbConnection();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC /*LIMIT ?, ? ');
-        $comments->execute(array($postId,$firstMessage,$messagePerPage));
-        return $comments;
-    }*/
 
 }
