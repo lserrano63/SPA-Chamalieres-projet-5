@@ -6,7 +6,7 @@
         <h3 class="card-header">Modification de votre mot de passe :</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=modifyAdminProfile" method="post">
+                <form action="https://projetsls.fr/SPA-Chamalieres/Modification-Profil" method="post">
                     <div class="form-group">
                         <label for="password">Nouveau mot de passe :</label>
                         <input name="password" type="password" id="password" class="form-control" required/>

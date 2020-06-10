@@ -6,7 +6,7 @@
         <h3 class="card-header">Nouvelle fiche animale :</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=addAnimal" method="post" enctype="multipart/form-data">
+                <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Animal" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Nom :</label>
                         <input name="name" type="text" id="name" class="form-control" required/>

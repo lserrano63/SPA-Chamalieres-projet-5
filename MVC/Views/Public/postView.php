@@ -20,7 +20,7 @@
                 <div id="comment" class="comment position-relative">
                     <p><strong><?= htmlspecialchars($comment['author']); ?></strong> le <?= $comment['comment_date_fr']; ?></p>
                     <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
-                    <a id="report_button" href="index.php?action=reportedCommentPost&id=<?= $comment['id']?>&post_id=<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
+                    <a id="report_button" href="https://projetsls.fr/SPA-Chamalieres/Signalement/Commentaire-<?= $comment['id']?>-Post-<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
                 </div>
 
             <?php 
@@ -32,7 +32,7 @@
             <h3 class="card-header">Ajouter votre commentaire</h2>
             <div class="card-body">
                 <div class="login-form">
-                    <form action="index.php?action=addComment&id=<?= $post['id'] ?>" method="post">
+                    <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Commentaire/Post-<?= $post['id'] ?>" method="post">
                         <div class="form-group">
                             <label for="pseudo">Nom :</label>
                             <input name="author" type="text" id="author" class="form-control" required/>
@@ -42,7 +42,7 @@
                             <textarea type="text" name="comment" id="comment" class="form-control" required></textarea>
                         </div>
                         <div class="form-group text-center">
-                            <label for="check">Voulez-vous accepter la <a href="?action=mentions">politique de confidentialité</a> : </label>
+                            <label for="check">Voulez-vous accepter la <a href="https://projetsls.fr/SPA-Chamalieres/Mentions-Légales">politique de confidentialité</a> : </label>
                             <input type="checkbox" name="check" id="check" class="form-control" required>
                         </div>
                         <input type="submit" name="send_message" class="btn btn-primary" value="Envoyer"/>

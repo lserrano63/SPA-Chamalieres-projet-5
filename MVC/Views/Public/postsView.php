@@ -27,7 +27,7 @@
                 <h2 class="text-center"><?= $data['title'];?></h2>
                 <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
                 <p><?= substr(nl2br($data['post']),0,300);?> ...<br>
-                <a class="btn btn-primary mb-1" href="?action=viewPost&id=<?= $data['id']; ?>">Voir plus</a></p>    
+                <a class="btn btn-primary mb-1" href="https://projetsls.fr/SPA-Chamalieres/Posts/Post-<?= $data['id']; ?>">Voir plus</a></p>    
             </article>
             <?php
         }
@@ -40,7 +40,7 @@
             }    
             else
             {
-                echo ' <a href="index.php?action=viewPosts&page='.$i.'">'.$i.'</a> ';
+                echo ' <a href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-'.$i.'">'.$i.'</a> ';
             }
         }
         echo '</p>';

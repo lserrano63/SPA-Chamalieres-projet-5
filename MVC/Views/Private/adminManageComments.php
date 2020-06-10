@@ -11,8 +11,8 @@
             <div class="bg-light mb-3 p-1">
                 <p><strong><?= htmlspecialchars($reportedFromPost['author']); ?></strong> le <?= $reportedFromPost['comment_date_fr']; ?></p>
                 <p><?= nl2br(htmlspecialchars($reportedFromPost['comment'])); ?></p>
-                <a href="?action=accept&id=<?=$reportedFromPost['id']; ?>" title="Accepter commentaire"><i class="fas fa-check"></i></a>
-                <a href="?action=remove&id=<?=$reportedFromPost['id']; ?>" title="Supprimer commentaire"><i class="far fa-trash-alt"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Accepter-Commentaire-Post-<?=$reportedFromPost['id']; ?>" title="Accepter commentaire"><i class="fas fa-check"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Suppression-Commentaire-Post-<?=$reportedFromPost['id']; ?>" title="Supprimer commentaire"><i class="far fa-trash-alt"></i></a>
             </div>
         <?php
         }
@@ -29,8 +29,8 @@
             <div class="bg-light mb-3 p-1">
                 <p><strong><?= htmlspecialchars($reportedFromAnimals['author']); ?></strong> le <?= $reportedFromAnimals['comment_date_fr']; ?></p>
                 <p><?= nl2br(htmlspecialchars($reportedFromAnimals['comment'])); ?></p>
-                <a href="?action=accept&id=<?=$reportedFromAnimals['id']; ?>" title="Accepter commentaire"><i class="fas fa-check"></i></a>
-                <a href="?action=remove&id=<?=$reportedFromAnimals['id']; ?>" title="Supprimer commentaire"><i class="far fa-trash-alt"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Accepter-Commentaire-Animal-<?=$reportedFromAnimals['id']; ?>" title="Accepter commentaire"><i class="fas fa-check"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Suppression-Commentaire-Animal-<?=$reportedFromAnimals['id']; ?>" title="Supprimer commentaire"><i class="far fa-trash-alt"></i></a>
             </div>
         <?php
         }

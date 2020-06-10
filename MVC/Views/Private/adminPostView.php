@@ -27,8 +27,8 @@
             <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
             <p><?= substr(nl2br($data['post']),0,400);?></p>
             <div class="text-center">
-                <a href="?action=adminPostModify&id=<?= $data['id']; ?>" title="Modifier le post" class="btn btn-primary"><i class="far fa-edit"></i></a>
-                <a href="?action=adminPostDelete&id=<?= $data['id']; ?>" title="Supprimer le post" class="btn btn-primary" data-toggle="modal" data-target="#modal_<?= $data['id'];?>"><i class="far fa-trash-alt"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Modification-Post-<?= $data['id']; ?>" title="Modifier le post" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                <a href="https://projetsls.fr/SPA-Chamalieres/Suppression-Post-<?= $data['id']; ?>" title="Supprimer le post" class="btn btn-primary" data-toggle="modal" data-target="#modal_<?= $data['id'];?>"><i class="far fa-trash-alt"></i></a>
             </div>
             <div class="modal fade" id="modal_<?= $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                            <a href="?action=adminPostDelete&id=<?= $data['id']; ?>" class="btn btn-primary" >Supprimer</a>
+                            <a href="https://projetsls.fr/SPA-Chamalieres/Suppression-Post-<?= $data['id']; ?>" class="btn btn-primary" >Supprimer</a>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
             }    
             else
             {
-                echo ' <a href="index.php?action=adminPost&page='.$i.'">'.$i.'</a> ';
+                echo ' <a href="https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-'.$i.'">'.$i.'</a> ';
             }
         }
         echo '</p>';

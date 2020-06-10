@@ -6,7 +6,7 @@
             <?= $animal['name']; ?>
             <em>le <?= $animal['creation_date_fr']; ?></em>
         </h3>
-        <p class="text-center"><img src="images/animals/<?= $animal['id'];?>.jpg"></p>
+        <p class="text-center"><img src="../images/animals/<?= $animal['id'];?>.jpg"></p>
         <p><?= nl2br($animal['description']); ?></p>
     </article>
 
@@ -18,7 +18,7 @@
                 <div id="comment" class="comment position-relative">
                     <p><strong><?= htmlspecialchars($comment['author']); ?></strong> le <?= $comment['comment_date_fr']; ?></p>
                     <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
-                    <a id="report_button" href="index.php?action=reportedCommentAnimal&id=<?= $comment['id']?>&animal_id=<?= $animal['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
+                    <a id="report_button" href="https://projetsls.fr/SPA-Chamalieres/Signalement/Commentaire-<?= $comment['id']?>-Animal-<?= $animal['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
                 </div>
             <?php   
             }
@@ -29,7 +29,7 @@
             <h3 class="card-header">Ajouter votre commentaire</h2>
             <div class="card-body">
                 <div class="login-form">
-                    <form action="index.php?action=addCommentAnimal&id=<?= $animal['id'] ?>" method="post">
+                    <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Commentaire/Animal-<?= $animal['id'] ?>" method="post">
                         <div class="form-group">
                             <label for="pseudo">Nom :</label>
                             <input name="author" type="text" id="author" class="form-control" required/>
@@ -39,7 +39,7 @@
                             <textarea type="text" name="comment" id="comment" class="form-control" required></textarea>
                         </div>
                         <div class="form-group text-center">
-                            <label for="check">Voulez-vous accepter la <a href="?action=mentions">politique de confidentialité</a> : </label>
+                            <label for="check">Voulez-vous accepter la <a href="https://projetsls.fr/SPA-Chamalieres/Mentions-Légales">politique de confidentialité</a> : </label>
                             <input type="checkbox" name="check" id="check" class="form-control" required>
                         </div>
                         <input type="submit" name="send_message" class="btn btn-primary" value="Envoyer"/>

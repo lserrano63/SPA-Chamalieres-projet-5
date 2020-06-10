@@ -44,7 +44,7 @@ class FrontEndController {
             die('Impossible d\'ajouter le commentaire !');
         }
         else {
-            header('Location: index.php?action=viewPost&id=' . $postId);
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Posts/Post-' . $postId);
         }
     }
 
@@ -56,7 +56,7 @@ class FrontEndController {
             die('Impossible d\'ajouter le commentaire !');
         }
         else {
-            header('Location: index.php?action=viewAnimal&id=' . $animalId);
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-' . $animalId);
         }
     }
 
@@ -72,7 +72,7 @@ class FrontEndController {
             if (password_verify($password, $login['password'])){
                 $_SESSION['connected'] = true;
                 $_SESSION['name'] = $_POST["name"];
-                header('Location: index.php');
+                header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
             } else {
                 $error = "Utilisateur inconnu ou mot de passe erroné";
             }

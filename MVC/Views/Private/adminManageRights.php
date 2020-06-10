@@ -6,7 +6,7 @@
         <h3 class="card-header">Nouvel administrateur :</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=addRights" method="post">
+                <form action="https://projetsls.fr/SPA-Chamalieres/Ajouter-Droits" method="post">
                     <div class="form-group">
                         <label for="email">Email :</label>
                         <input name="email" type="email" id="email" class="form-control" required/>

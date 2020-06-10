@@ -16,7 +16,7 @@ class BackEndController {
             die('Impossible d\'ajouter le post !');
         }
         else {
-            header('Location: index.php');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
         }
     }
 
@@ -143,10 +143,10 @@ class BackEndController {
             $message = 'Votre compte administrateur a bien été crée !
             Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.
             Votre mot de passe temporaire : ' . $result . '
-            Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/index.php?action=viewProfile'; 
+            Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
             $headers = "From:" . $from;
             mb_send_mail($to,$subject,$message, $headers);
-            header('Location: index.php?action=admin');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
         }
     }
 
@@ -158,7 +158,7 @@ class BackEndController {
             die('Ca marche pas');
         }
         else {
-            header('Location: index.php?action=admin');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
         }
     }
 

@@ -6,7 +6,7 @@
         <h3 class="card-header">Ajouter votre post</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=addPost" method="post">
+                <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Post" method="post">
                     <div class="form-group">
                         <label for="title">Titre :</label>
                         <input name="title" type="text" id="title" class="form-control" required/>

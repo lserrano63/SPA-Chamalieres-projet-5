@@ -13,7 +13,7 @@
                 <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
                 <p class="text-center"><img src="images/animals/<?= $data['id'];?>.jpg"></p>
                 <p><?= substr(nl2br($data['description']),0,300);?> ...<br>
-                <a class="btn btn-primary mb-1" href="?action=viewAnimal&id=<?= $data['id']; ?>">Voir plus</a></p>    
+                <a class="btn btn-primary mb-1" href="https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-<?= $data['id']; ?>">Voir plus</a></p>    
             </article>
             <?php
         }

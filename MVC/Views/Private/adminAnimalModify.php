@@ -6,7 +6,7 @@
         <h3 class="card-header">Modifier votre fiche animale</h2>
         <div class="card-body">
             <div class="login-form">
-                <form action="index.php?action=adminAnimalModified&id=<?= $animalAdmin['id'];?>" method="post">
+                <form action="https://projetsls.fr/SPA-Chamalieres/Animal-Modifié-<?= $animalAdmin['id'];?>" method="post">
                     <div class="form-group">
                         <label for="name">Nom :</label>
                         <input name="name" type="text" id="name" class="form-control" value="<?= $animalAdmin['name'];?>" required/>

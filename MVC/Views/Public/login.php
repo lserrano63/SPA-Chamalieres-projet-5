@@ -11,7 +11,7 @@
 		?>
 		<div class="card-body">
 			<div class="login-form">
-				<form action="?action=login" method="post">
+				<form action="https://projetsls.fr/SPA-Chamalieres/Connection" method="post">
 					<div class="form-group">
 						<label for="pseudo">Pseudonyme :</label>
 						<input name="name" type="text" id="name" class="form-control" required/>

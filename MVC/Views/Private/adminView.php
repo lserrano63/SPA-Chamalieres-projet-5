@@ -3,13 +3,13 @@
 
 <section class="container mt-3">
     <ul class="container list-unstyled d-flex justify-content-center flex-column">
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=postCreation">Nouveau post</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=adminPost&page=1">Administration des posts</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=formAnimal">Ajouter une fiche d'un animal</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=adminAnimal">Administration des fiches animales</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=viewComments">Gérer Commentaires</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=manageRights">Rôles utilisateurs</a></li>
-        <li class="btn btn-secondary mt-3"><a class="text-light" href="?action=viewProfile">Profil</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Nouveau-Post">Nouveau post</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1">Administration des posts</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Ajouter-Animal">Ajouter une fiche d'un animal</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Administration-Animaux">Administration des fiches animales</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires">Gérer Commentaires</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Ajouter-Administrateur">Rôles utilisateurs</a></li>
+        <li class="btn btn-secondary mt-3"><a class="text-light" href="https://projetsls.fr/SPA-Chamalieres/Profil">Profil</a></li>
     </ul>
 </section>
 

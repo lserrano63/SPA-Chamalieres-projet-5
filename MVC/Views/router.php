@@ -47,12 +47,12 @@ if($action == 'spajson')
 } elseif ($action == 'reportedCommentPost') {
     if (isset($_GET['id']) && $_GET['id'] > 0){
         $frontEndController->report($_GET['id']);
-        header('Location: index.php?action=viewPost&id='. $_GET['post_id']);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Posts/Post-'. $_GET['post_id']);
     }
 } elseif ($action == 'reportedCommentAnimal') {
     if (isset($_GET['id']) && $_GET['id'] > 0){
         $frontEndController->report($_GET['id']);
-        header('Location: index.php?action=viewAnimal&id='. $_GET['animal_id']);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-'. $_GET['animal_id']);
     }
 } elseif ($action=="mentions"){
     require('MVC/Views/Public/mentions.php');
@@ -66,7 +66,7 @@ if($action == 'spajson')
     if ($action == 'disconnect') {
         $_SESSION = array();
         session_destroy();
-        header('Location: index.php');
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
     } elseif ($action == 'admin') {
         require('MVC/Views/Private/adminView.php');
     } elseif ($action == 'postCreation') {
@@ -89,21 +89,21 @@ if($action == 'spajson')
         $backEndController->viewAnimalAdmin();
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalModified')){
         $backEndController->modifyOneAnimal($_POST['name'], $_POST['description'], $_POST['type'], $_POST['age'], $_POST['sexe'], $_GET['id']);
-        header('Location: index.php?action=adminAnimal');
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalDelete')){
         $backEndController->deleteOneAnimal($_GET['id']);
-        header('Location: index.php?action=adminAnimal');
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
     } elseif ($action == 'viewComments') {
         require('MVC/Views/Private/adminManageComments.php');
     } elseif ($action == 'accept') {
         if (isset($_GET['id']) && $_GET['id'] > 0){
             $backEndController->acceptComment($_GET['id']);
-            header('Location: index.php?action=viewComments');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
         }
     } elseif ($action == 'remove') {
         if (isset($_GET['id']) && $_GET['id'] > 0){
             $backEndController->removeComment($_GET['id']);
-            header('Location: index.php?action=viewComments');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
         }
     } elseif ($action == 'manageRights') {
         require('MVC/Views/Private/adminManageRights.php');
@@ -123,9 +123,9 @@ if($action == 'spajson')
         $backEndController->viewPostAdmin();
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModified')){
         $backEndController->modifyOnePost($_POST['title'], $_POST['post'], $_GET['id']);
-        header('Location: index.php?action=adminPost&page=1');
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostDelete')){
         $backEndController->deleteOnePost($_GET['id']);
-        header('Location: index.php?action=adminPost&page=1');
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     }
 } 
