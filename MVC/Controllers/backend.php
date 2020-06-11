@@ -13,7 +13,10 @@ class BackEndController {
         $postManager = new PostManager();
         $addaPost = $postManager->addPost($title, $post);
         if ($addaPost === false) {
-            die('Impossible d\'ajouter le post !');
+            $error = 'Impossible d\'ajouter le post !';
+            $previousPostTitle = $title;
+            $previousPost = $post;
+            require('MVC/Views/Private/adminPostCreation.php');
         }
         else {
             header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
@@ -125,7 +128,7 @@ class BackEndController {
         $count = mb_strlen($chars); //return $chars's length
     
         for ($i = 0; $i < $length; $i++) {
-            $index = rand(0, $count - 1);
+            $index = random_int(0, $count - 1);
             $result .= mb_substr($chars, $index, 1);
         }
 
@@ -150,7 +153,7 @@ class BackEndController {
         }
     }
 
-    public function modifyProfileAdmin($password)
+    public function modifyProfileAdmin($password,$name)
     {
         $userManager = new UserManager();
         $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
