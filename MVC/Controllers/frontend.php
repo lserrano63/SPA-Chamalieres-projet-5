@@ -41,7 +41,7 @@ class FrontEndController {
         $commentManager = new CommentManager();
         $addaComment = $commentManager->addComment($postId, htmlspecialchars($author), htmlspecialchars($comment));
         if ($addaComment === false) {
-            die('Impossible d\'ajouter le commentaire !');
+            throw new Exception('Impossible d\'ajouter le commentaire !');
         }
         else {
             header('Location: https://projetsls.fr/SPA-Chamalieres/Posts/Post-' . $postId);

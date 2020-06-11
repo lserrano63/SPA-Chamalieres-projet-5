@@ -4,6 +4,7 @@ $action = $_GET['action'];
 $frontEndController = new \App\frontend\FrontEndController();
 $backEndController = new \App\backend\BackEndController();
 
+try {
 if($action == 'spajson')
 {
     require('MVC/Models/data_to_json.php');
@@ -128,4 +129,8 @@ if($action == 'spajson')
         $backEndController->deleteOnePost($_GET['id']);
         header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     }
-} 
+}
+} catch (Exception $e){
+    $error = $e->getMessage();
+    require('MVC/Views/Public/errorView.php'); // vue avec $error
+}
