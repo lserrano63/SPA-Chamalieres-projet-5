@@ -67,4 +67,4 @@ class Slider {
 		this.slideAuto = setInterval(this.rightSlide.bind(this), this.speed);
 	}	
 }
-var sliderVélo = new Slider();
+var slider = new Slider();
