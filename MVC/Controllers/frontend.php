@@ -14,7 +14,7 @@ class FrontEndController {
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $post = $postManager->getPost($_GET['id']);
-            $comments = $commentManager->getComments($_GET['id']);
+            $postComments = $commentManager->getComments($_GET['id']);
             require('MVC/Views/Public/postView.php');
         }
         else {
@@ -28,7 +28,7 @@ class FrontEndController {
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             $animal = $animalManager->getAnimal($_GET['id']);
-            $comments = $commentManager->getAnimalComments($_GET['id']);
+            $animalComments = $commentManager->getAnimalComments($_GET['id']);
             require('MVC/Views/Public/animalView.php');
         }
         else {

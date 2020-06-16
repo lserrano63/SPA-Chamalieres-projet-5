@@ -14,18 +14,17 @@
 
     <section id="comments" class="bg-light mt-2 mb-2 p-3">
         <h3 class="text-center">Commentaires</h3>
-            <?php
-            while ($comment = $comments->fetch()){
-            ?>
-                <div id="comment" class="comment position-relative">
-                    <p><strong><?= htmlspecialchars($comment['author']); ?></strong> le <?= $comment['comment_date_fr']; ?></p>
-                    <p><?= nl2br(htmlspecialchars($comment['comment'])); ?></p>
-                    <a id="report_button" href="https://projetsls.fr/SPA-Chamalieres/Signalement/Commentaire-<?= $comment['id']?>-Post-<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
-                </div>
-
-            <?php 
-            }         
-            ?>
+        <?php foreach ($postComments as $comments) 
+        {
+        ?>
+            <div id="comment" class="comment position-relative">
+                <p><strong><?= htmlspecialchars($comments['author']); ?></strong> le <?= $comments['comment_date_fr']; ?></p>                
+                <p><?= nl2br(htmlspecialchars($comments['comment'])); ?></p>
+                <a id="report_button" href="https://projetsls.fr/SPA-Chamalieres/Signalement/Commentaire-<?= $comments['id']?>-Post-<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
+            </div>
+        <?php
+        }
+        ?>
     </section>
     <section class="container mb-2 ">
         <div class="card card-container">

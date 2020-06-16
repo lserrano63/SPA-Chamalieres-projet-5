@@ -42,18 +42,16 @@
 		</figure>
     <?php 
     $animalManager = new \App\Models\AnimalManager();
-    $req = $animalManager->sliderAnimals();
-    while ($data = $req->fetch()) 
+    $slider = $animalManager->sliderAnimals();
+    foreach ($slider as $data) 
     {
-        ?>
-
+    ?>
 		<figure class="slider_image not_visible">
 			<img src="images/animals/<?= $data['id'];?>.jpg">
 			<figcaption><a href="https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-<?= $data['id'];?>"><?= $data['name'];?></a></figcaption>
 		</figure>
-        <?php
+    <?php
     }
-        $req->closeCursor();
     ?>
 	</div>
 		

@@ -33,7 +33,8 @@ class AnimalManager extends Manager {
     {
         $db = $this->dbConnection();
         $req = $db->query('SELECT * FROM animals ORDER BY id DESC LIMIT 0,5');
-        return $req;
+        $slider = $req->fetchAll();
+        return $slider;
     }
 
     public function addAnimal($name, $description, $type, $age, $sexe)

@@ -5,17 +5,19 @@ class CommentManager extends Manager {
     public function getComments($postId)
     {
         $db = $this->dbConnection();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($postId));
-        return $comments;
+        $req = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $req->execute(array($postId));
+        $postComments = $req->fetchAll();
+        return $postComments;
     }
 
     public function getAnimalComments($animal_id)
     {
         $db = $this->dbConnection();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE animal_id = ? ORDER BY comment_date DESC');
-        $comments->execute(array($animal_id));
-        return $comments;
+        $req = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE animal_id = ? ORDER BY comment_date DESC');
+        $req->execute(array($animal_id));
+        $animalComments = $req->fetchAll();
+        return $animalComments;
     }
 
     public function addComment($postId, $author, $comment)
