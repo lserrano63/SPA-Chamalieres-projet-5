@@ -115,8 +115,8 @@ try {
         } elseif ($action == 'viewProfile') {
             require('MVC/Views/Private/adminProfile.php');
         } elseif ($action == 'modifyAdminProfile') {
-            if (!empty($_POST['password'])) {
-                $backEndController->modifyProfileAdmin($_POST['password'],$_SESSION['name']);
+            if (!empty($_POST['password']) && !empty($_POST['password_check'])) {
+                $backEndController->modifyProfileAdmin($_POST['password'],$_POST['password_check'],$_SESSION['name']);
             }
         } elseif ($action == 'adminPost') {
             require('MVC/Views/Private/adminPostView.php');
@@ -130,7 +130,7 @@ try {
             header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
         }
     }
-} catch (Exception $e){
+} catch (\Exception $e){
     $error = $e->getMessage();
     require('MVC/Views/Public/errorView.php');
 }
