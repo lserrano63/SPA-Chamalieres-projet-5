@@ -29,4 +29,15 @@ class UserManager extends Manager{
         ));
     }
 
+    public function checkEmail($email)
+    {
+        $db = $this->dbConnection();
+        $req = $db->prepare('SELECT email FROM users WHERE email = :email');
+        $req->execute(array(
+            'email' => $email
+        ));
+        $checkemails = $req->fetch();
+        return $checkemails;
+    }
+
 }
