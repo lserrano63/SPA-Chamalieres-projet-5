@@ -131,37 +131,60 @@ class BackEndController {
             $index = random_int(0, $count - 1);
             $result .= mb_substr($chars, $index, 1);
         }
-
-        //And we up name password and email to the database
+        //We need to check if email already exist
         $userManager = new UserManager();
-        $addanAdmin = $userManager->addAdmin($name, password_hash($result, PASSWORD_DEFAULT), $email);
-        if ($addanAdmin === false) {
-            die('Impossible de créer le compte administrateur!');
+        $checkemails = $userManager->checkEmail($email);
+        try {
+            if ($checkemails['email'] === $email){
+                throw new \Exception('Email déja enregistré dans la base de données');
+            } else {
+                //If not we sent name password and email to the database
+                $addanAdmin = $userManager->addAdmin($name, password_hash($result, PASSWORD_DEFAULT), $email);
+                if ($addanAdmin === false) {
+                    throw new \Exception('Impossible de créer le compte administrateur!');
+                    //die('Impossible de créer le compte administrateur!');
+                }
+                else {
+                    //if all good we send an email for the recap and instructions
+                    $from = "spa.chamalieres.contact@gmail.com";
+                    $to = $email; 
+                    $subject = "Création compte administrateur SPA Chamalières"; 
+                    $message = 'Votre compte administrateur a bien été crée !
+                    Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.
+                    Votre mot de passe temporaire : ' . $result . '
+                    Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
+                    $headers = "From:" . $from;
+                    mb_send_mail($to,$subject,$message, $headers);
+                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
+                }
+            }
+        } catch (\Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
-        else {
-            //if all good we send an email for the recap and instructions
-            $from = "spa.chamalieres.contact@gmail.com";
-            $to = $email; 
-            $subject = "Création compte administrateur SPA Chamalières"; 
-            $message = 'Votre compte administrateur a bien été crée !
-            Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.
-            Votre mot de passe temporaire : ' . $result . '
-            Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
-            $headers = "From:" . $from;
-            mb_send_mail($to,$subject,$message, $headers);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
-        }
+
     }
 
-    public function modifyProfileAdmin($password,$name)
+    public function modifyProfileAdmin($password,$passwordCheck,$name)
     {
-        $userManager = new UserManager();
-        $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
-        if ($adminModify === false) {
-            die('Ca marche pas');
-        }
-        else {
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
+        try {
+            if ($password == $passwordCheck){
+                $userManager = new UserManager();
+                $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
+                if ($adminModify === false) {
+                    throw new \Exception('Votre mot de passe ne peut être modifié');
+                }
+                else {
+                    //$message = 'Votre mot de passe à été réinitialisé !';
+                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
+                }
+            } else {
+                //die('Ca marcheeeeeeeee pas');
+                throw new \Exception('Vos mots de passes ne sont pas identiques !');
+                //echo 'Exception reçue : ',  $e->getMessage('Vos mots de passes ne sont pas identiques !'), "\n";
+                //$errors = 'Vos mots de passes ne sont pas identiques !';
+            }
+        } catch (\Exception $e){
+            echo 'Exception reçue : ',  $e->getMessage(), "\n";
         }
     }
 
