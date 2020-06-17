@@ -11,6 +11,10 @@
                         <label for="password">Nouveau mot de passe :</label>
                         <input name="password" type="password" id="password" class="form-control" required/>
                     </div>
+                    <div class="form-group">
+                        <label for="password_check">Retapez votre nouveau mot de passe :</label>
+                        <input name="password_check" type="password" id="password_check" class="form-control" required/>
+                    </div>
                     <input type="submit" name="send" class="btn btn-primary" value="Envoyer"/>
                 </form>
             </div>
