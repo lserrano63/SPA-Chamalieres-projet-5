@@ -67,9 +67,9 @@ try {
         if ($action == 'disconnect') {
             $_SESSION = array();
             session_destroy();
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
+            header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');// creer function disconnect et faire hearders dedans
         } elseif ($action == 'admin') {
-            require('MVC/Views/Private/adminView.php');
+            $backEndController->showAdminView();
         } elseif ($action == 'postCreation') {
             require('MVC/Views/Private/adminPostCreation.php');
         } elseif ($action == 'addPost') {

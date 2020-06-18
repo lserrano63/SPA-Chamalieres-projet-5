@@ -1,3 +1,6 @@
+<?php $title= "Erreur";
+	
+?>
 <?php ob_start(); ?>
 
 <section id="error" class="container rounded bg-secondary pt-3 pb-1">

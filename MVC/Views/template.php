@@ -44,7 +44,23 @@
                 </ul>
             </nav>
         </header>
-    
+        <?php
+            if (isset($error)){
+        ?>
+        <section> 
+            <?= $error ?>
+        </section>
+
+        <?php
+        }
+            if (isset($message)){
+        ?>
+        <section> 
+            <?= $message ?>
+        </section>
+        <?php
+    }
+    ?>                
         <?= $content ?>
 
         <footer class="container navbar page-footer">

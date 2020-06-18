@@ -172,19 +172,24 @@ class BackEndController {
                 $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
                 if ($adminModify === false) {
                     throw new \Exception('Votre mot de passe ne peut être modifié');
+                    //$error = 'Votre mot de passe ne peut être modifié';
                 }
                 else {
                     //$message = 'Votre mot de passe à été réinitialisé !';
-                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
+                    
+                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration?msg=success-pwd');
                 }
             } else {
                 //die('Ca marcheeeeeeeee pas');
                 throw new \Exception('Vos mots de passes ne sont pas identiques !');
                 //echo 'Exception reçue : ',  $e->getMessage('Vos mots de passes ne sont pas identiques !'), "\n";
                 //$errors = 'Vos mots de passes ne sont pas identiques !';
+                //$error = 'Vos mots de passes ne sont pas identiques !';
+
             }
         } catch (\Exception $e){
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            $error = $e->getMessage();
+            require ('MVC/Views/Private/adminProfile.php');
         }
     }
 
@@ -192,6 +197,15 @@ class BackEndController {
     {
         $animalManager = new AnimalManager();
         $animalManager->modifyAnimal($name, $description, $type, $age, $sexe, $animal_id);
+    }
+
+    public function showAdminView(){
+        if (isset($_GET['msg']){
+            if ($_GET['msg'] == 'success-pwd') {
+                $message = 'Votre mot de passe à été réinitialisé !';
+            }
+        }
+        require('MVC/Views/Private/adminView.php');
     }
 
 }

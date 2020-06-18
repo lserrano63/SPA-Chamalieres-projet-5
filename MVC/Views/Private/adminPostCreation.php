@@ -7,10 +7,6 @@
         <div class="card-body">
             <div class="login-form">
                 <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Post" method="post">
-                <?php if (isset($error)){
-                    echo '<p>' . $error . '</p>';
-                }
-                ?>
                     <div class="form-group">
                         <label for="title">Titre :</label>
                         <input name="title" type="text" id="title" class="form-control" required>
