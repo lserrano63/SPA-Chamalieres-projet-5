@@ -27,6 +27,7 @@ class BackEndController {
     {
         $postManager = new PostManager();
         $postManager->modifyPost($title, $post, $postId);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     }
 
     public function deleteOnePost($post_id)
@@ -35,6 +36,7 @@ class BackEndController {
         $postManager->removePost($post_id);
         $commentManager = new CommentManager();
         $commentManager->removeAllCommentsFromPost($post_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     }
 
     public function deleteOneAnimal($animal_id)
@@ -43,18 +45,21 @@ class BackEndController {
         $animalManager->removeAnimal($animal_id);
         $commentManager = new CommentManager();
         $commentManager->removeAllCommentsFromAnimalPost($animal_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
     }
 
     public function removeComment($comment_id)
     {
         $commentManager = new CommentManager();
         $commentManager->removeComment($comment_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
     }
 
     public function acceptComment($comment_id)
     {
         $commentManager = new CommentManager();
         $commentManager->acceptComment($comment_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
     }
     
     public function viewPostAdmin(){
@@ -197,15 +202,20 @@ class BackEndController {
     {
         $animalManager = new AnimalManager();
         $animalManager->modifyAnimal($name, $description, $type, $age, $sexe, $animal_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
     }
 
     public function showAdminView(){
-        if (isset($_GET['msg']){
+        if (isset($_GET['msg'])){
             if ($_GET['msg'] == 'success-pwd') {
                 $message = 'Votre mot de passe à été réinitialisé !';
             }
         }
         require('MVC/Views/Private/adminView.php');
+    }
+
+    public function disconnectRedirection(){
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
     }
 
 }

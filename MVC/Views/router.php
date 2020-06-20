@@ -67,7 +67,7 @@ try {
         if ($action == 'disconnect') {
             $_SESSION = array();
             session_destroy();
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');// creer function disconnect et faire hearders dedans
+            $backEndController->disconnectRedirection();;
         } elseif ($action == 'admin') {
             $backEndController->showAdminView();
         } elseif ($action == 'postCreation') {
@@ -90,21 +90,17 @@ try {
             $backEndController->viewAnimalAdmin();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalModified')){
             $backEndController->modifyOneAnimal($_POST['name'], $_POST['description'], $_POST['type'], $_POST['age'], $_POST['sexe'], $_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalDelete')){
             $backEndController->deleteOneAnimal($_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
         } elseif ($action == 'viewComments') {
             require('MVC/Views/Private/adminManageComments.php');
         } elseif ($action == 'accept') {
             if (isset($_GET['id']) && $_GET['id'] > 0){
                 $backEndController->acceptComment($_GET['id']);
-                header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
             }
         } elseif ($action == 'remove') {
             if (isset($_GET['id']) && $_GET['id'] > 0){
                 $backEndController->removeComment($_GET['id']);
-                header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Commentaires');
             }
         } elseif ($action == 'manageRights') {
             require('MVC/Views/Private/adminManageRights.php');
@@ -124,10 +120,8 @@ try {
             $backEndController->viewPostAdmin();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModified')){
             $backEndController->modifyOnePost($_POST['title'], $_POST['post'], $_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostDelete')){
             $backEndController->deleteOnePost($_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
         }
     }
 } catch (\Exception $e){
