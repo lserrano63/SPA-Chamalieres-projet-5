@@ -24,7 +24,7 @@
                             <option value="rat">Rat</option>
                             <option value="lapin">Lapin</option>
                             <option value="perroquet">perroquet</option>
-                            <option value="poisson rouge">Poisson rouge</option>
+                            <option value="poisson">Poisson</option>
                             <option value="serpent">Serpent</option>
                             <option value="souris">Souris</option>                                    
                             <option value="tortue">Tortue</option>

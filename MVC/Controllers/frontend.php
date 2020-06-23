@@ -80,9 +80,18 @@ class FrontEndController {
         require('MVC/Views/Public/login.php');
     }
 
-    public function report($comment_id)
+    public function reportFromPost($comment_id)
     {
         $commentManager = new CommentManager();
         $commentManager->report($comment_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Posts/Post-'. $_GET['post_id']);
     }
+
+    public function reportFromAnimal($comment_id)
+    {
+        $commentManager = new CommentManager();
+        $commentManager->report($comment_id);
+        header('Location: https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-'. $_GET['animal_id']);
+    }
+
 }

@@ -47,13 +47,11 @@ try {
         }
     } elseif ($action == 'reportedCommentPost') {
         if (isset($_GET['id']) && $_GET['id'] > 0){
-            $frontEndController->report($_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Posts/Post-'. $_GET['post_id']);
+            $frontEndController->reportFromPost($_GET['id']);
         }
     } elseif ($action == 'reportedCommentAnimal') {
         if (isset($_GET['id']) && $_GET['id'] > 0){
-            $frontEndController->report($_GET['id']);
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-'. $_GET['animal_id']);
+            $frontEndController->reportFromAnimal($_GET['id']);
         }
     } elseif ($action=="mentions"){
         require('MVC/Views/Public/mentions.php');

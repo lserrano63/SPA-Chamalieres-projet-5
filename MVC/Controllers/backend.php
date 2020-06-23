@@ -147,10 +147,9 @@ class BackEndController {
                 $addanAdmin = $userManager->addAdmin($name, password_hash($result, PASSWORD_DEFAULT), $email);
                 if ($addanAdmin === false) {
                     throw new \Exception('Impossible de créer le compte administrateur!');
-                    //die('Impossible de créer le compte administrateur!');
                 }
                 else {
-                    //if all good we send an email for the recap and instructions
+                    //If all good we send an email for the recap and instructions
                     $from = "spa.chamalieres.contact@gmail.com";
                     $to = $email; 
                     $subject = "Création compte administrateur SPA Chamalières"; 
@@ -177,20 +176,12 @@ class BackEndController {
                 $adminModify = $userManager->modifyProfile(password_hash($password, PASSWORD_DEFAULT),$name);
                 if ($adminModify === false) {
                     throw new \Exception('Votre mot de passe ne peut être modifié');
-                    //$error = 'Votre mot de passe ne peut être modifié';
                 }
                 else {
-                    //$message = 'Votre mot de passe à été réinitialisé !';
-                    
                     header('Location: https://projetsls.fr/SPA-Chamalieres/Administration?msg=success-pwd');
                 }
             } else {
-                //die('Ca marcheeeeeeeee pas');
                 throw new \Exception('Vos mots de passes ne sont pas identiques !');
-                //echo 'Exception reçue : ',  $e->getMessage('Vos mots de passes ne sont pas identiques !'), "\n";
-                //$errors = 'Vos mots de passes ne sont pas identiques !';
-                //$error = 'Vos mots de passes ne sont pas identiques !';
-
             }
         } catch (\Exception $e){
             $error = $e->getMessage();
