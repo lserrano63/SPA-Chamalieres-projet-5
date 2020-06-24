@@ -14,10 +14,12 @@
                 <li id="serpent">serpent</li>
                 <li id="souris">souris</li>
                 <li id="tortue">tortue</li>
+                <li id="all">Tous les animaux</li>
             </div>
         </ul>
     </nav>
     <section id="all_animals">
+        <span id="messageNoItem" class="not_visible">Rien n'a été trouvé lors de votre recherche !</span>
     <?php
         $animalManager = new \App\Models\AnimalManager();
         $animals = $animalManager->getAllAnimals();
