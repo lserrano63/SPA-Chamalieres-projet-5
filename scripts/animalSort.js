@@ -11,22 +11,35 @@ class AnimalSort {
         this.mouses = document.getElementById("souris");
         this.turtles = document.getElementById("tortue");
         this.animals = document.querySelectorAll(".animals");
-        this.animalsLength = this.animals.length;
-        this.test = document.getElementById("all_animals");
+        this.all = document.getElementById("all");
+        this.messageNoItem = document.getElementById("messageNoItem");
+        
         this.initControls();
     } 
 
-    catsSort(){
-        this.animals[this.animalsLength].classList.add("not_visible");
-        if (!this.animals.hasAttribute("data-animal-type") && data-animal-type === "chat") {
-            this.test.innerHTML = '<p>Rien n\'a été trouvé lors de votre recherche !</p>';
+    sort(e){
+        let hasfounditem = false;
+        let filter = e.target.id;
+        for (let item of this.animals) {
+            if (item.dataset.animalType === filter || filter === "all") {
+                hasfounditem = true;
+                item.classList.remove("not_visible");
+            } else {
+                item.classList.add("not_visible");
+            }
+        }
+        if (hasfounditem){
+            this.messageNoItem.classList.add("not_visible");
         } else {
-            this.cats.classList.remove("not_visible");
+            this.messageNoItem.classList.remove("not_visible");
         }
     }
 
+
+
     initControls(){
-        this.cats.addEventListener("click", this.catsSort.bind(this));
+        this.cats.addEventListener("click", this.sort.bind(this));
+        this.all.addEventListener("click", this.sort.bind(this));
     }
 }
 var animalSort = new AnimalSort();
