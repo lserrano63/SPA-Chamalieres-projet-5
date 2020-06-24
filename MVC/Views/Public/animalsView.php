@@ -1,18 +1,23 @@
 <?php ob_start(); ?>
 
 <section id="animals" class="container rounded bg-secondary pt-3 pb-1">
-    <ul>
-        <li id="chat">chat</li>
-        <li id="chien">chien</li>
-        <li id="hamster">hamster</li>
-        <li id="rat">rat</li>
-        <li id="lapin">lapin</li>
-        <li id="perroquet">perroquet</li>
-        <li id="poisson">poisson</li>
-        <li id="serpent">serpent</li>
-        <li id="souris">souris</li>
-        <li id="tortue">tortue</li>
-    </ul>
+    <nav class="d-flex justify-content-center text-center">
+        <ul class="container nav row">
+            <div class="col-12 d-flex flex-wrap">
+                <li id="chat">chat</li>
+                <li id="chien">chien</li>
+                <li id="hamster">hamster</li>
+                <li id="rat">rat</li>
+                <li id="lapin">lapin</li>
+                <li id="perroquet">perroquet</li>
+                <li id="poisson">poisson</li>
+                <li id="serpent">serpent</li>
+                <li id="souris">souris</li>
+                <li id="tortue">tortue</li>
+            </div>
+        </ul>
+    </nav>
+    <section id="all_animals">
     <?php
         $animalManager = new \App\Models\AnimalManager();
         $animals = $animalManager->getAllAnimals();
@@ -29,6 +34,7 @@
             <?php
         }
             ?>
+    </section>
 </section>
 
 <?php $content = ob_get_clean(); ?>
