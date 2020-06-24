@@ -11,16 +11,22 @@ class BackEndController {
     public function addOnePost($title, $post)
     {
         $postManager = new PostManager();
-        $addaPost = $postManager->addPost($title, $post);
-        if ($addaPost === false) {
-            $error = 'Impossible d\'ajouter le post !';
-            $previousPostTitle = $title;
-            $previousPost = $post;
+        try {
+            $addaPost = $postManager->addPost($title, $post);
+            if ($addaPost === false) {
+                throw new \Exception('Impossible d\'ajouter le post !');
+                $previousPostTitle = $title;
+                $previousPost = $post;
+                require('MVC/Views/Private/adminPostCreation.php');
+            }
+            else {
+                header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
+            }
+        } catch (\Exception $e){
+            $error = $e->getMessage();
             require('MVC/Views/Private/adminPostCreation.php');
         }
-        else {
-            header('Location: https://projetsls.fr/SPA-Chamalieres/Acceuil');
-        }
+       
     }
 
     public function modifyOnePost($title, $post, $postId)
@@ -64,65 +70,80 @@ class BackEndController {
     
     public function viewPostAdmin(){
         $postManager = new PostManager();
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
+        try {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
             $postAdmin = $postManager->getPost($_GET['id']);
             require('MVC/Views/Private/adminModify.php');
+            }
+            else {
+                throw new \Exception('Erreur : aucun identifiant de billet envoyé');
+            }
+        } catch (\Exception $e){
+            $error = $e->getMessage();
+            require('MVC/Views/Private/adminPostView.php');
         }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
+
     }
 
     public function viewAnimalAdmin(){
         $animalManager = new AnimalManager();
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            $animalAdmin = $animalManager->getAnimal($_GET['id']);
-            require('MVC/Views/Private/adminAnimalModify.php');
+        try {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $animalAdmin = $animalManager->getAnimal($_GET['id']);
+                require('MVC/Views/Private/adminAnimalModify.php');
+            }
+            else {
+                throw new \Exception('Erreur : aucun identifiant de billet envoyé');
+            }
+        } catch (\Exception $e){
+            $error = $e->getMessage();
+            require('MVC/Views/Private/adminAnimalView.php');
         }
-        else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
+
     }
 
     public function addOneAnimal($name, $description, $type, $age, $sexe)
     {
-        if(isset($_FILES["animal_image"])){
+        try {
+            if(isset($_FILES["animal_image"])){
+                $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg");
+                $filename = $_FILES["animal_image"]["name"];
+                $filetype = $_FILES["animal_image"]["type"];
+                $filesize = $_FILES["animal_image"]["size"];
 
-            $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg");
-            $filename = $_FILES["animal_image"]["name"];
-            $filetype = $_FILES["animal_image"]["type"];
-            $filesize = $_FILES["animal_image"]["size"];
-
-            $ext = pathinfo($filename, PATHINFO_EXTENSION);
-            if(!array_key_exists($ext, $allowed)){
-                die("Erreur : Veuillez sélectionner un format jpg.");
-            }
-
-            $maxsize = 5 * 1024 * 1024; //5Mo 
-            if($filesize > $maxsize) { //Checking file's weight
-                die("Error: La taille du fichier est supérieure à 5 Mo.");
-            }
-
-            if(in_array($filetype, $allowed)){ //Checking if the extension is allowed
-                $animalManager = new AnimalManager();
-                $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);    
-            if ($addanAnimal === false) {
-                    //die('Impossible de créer la fiche animale !');
-                    $errors = "Impossible de créer la fiche animale !";
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                if(!array_key_exists($ext, $allowed)){
+                    throw new \Exception('Erreur : Veuillez sélectionner un format jpg.');
                 }
-                else {
-                    $lastanimal = $animalManager->lastAnimal();
-                    move_uploaded_file($_FILES["animal_image"]["tmp_name"], "images/animals/" . $_FILES["animal_image"]["name"]);
-                    rename("images/animals/" . $_FILES["animal_image"]["name"], "images/animals/" . $lastanimal['id'] . ".jpg");
-                    echo "Votre fichier a été téléchargé.";
-                    //header('Location: index.php?action=viewAnimals');
+
+                $maxsize = 5 * 1024 * 1024; //5Mo 
+                if($filesize > $maxsize) { //Checking file's weight
+                    throw new \Exception('Error: La taille du fichier est supérieure à 5 Mo.');
+                }
+
+                if(in_array($filetype, $allowed)){ //Checking if the extension is allowed
+                    $animalManager = new AnimalManager();
+                    $addanAnimal = $animalManager->addAnimal($name, $description, $type, $age, $sexe);    
+                    if ($addanAnimal === false) {
+                        throw new \Exception('Error: La taille du fichier est supérieure à 5 Mo.');                 
+                    } else {
+                        $lastanimal = $animalManager->lastAnimal();
+                        move_uploaded_file($_FILES["animal_image"]["tmp_name"], "images/animals/" . $_FILES["animal_image"]["name"]);
+                        rename("images/animals/" . $_FILES["animal_image"]["name"], "images/animals/" . $lastanimal['id'] . ".jpg");
+                        echo "Votre fichier a été téléchargé.";
+                        //header('Location: index.php?action=viewAnimals');
+                    }
+                } else {
+                    throw new \Exception('Error: Il y a eu un problème de téléchargement. Veuillez réessayer.');
                 }
             } else {
-                echo "Error: Il y a eu un problème de téléchargement. Veuillez réessayer."; 
+                throw new \Exception('Error: ' . $_FILES["animal_image"]["error"] .' ');
             }
-        } else {
-            echo "Error: " . $_FILES["animal_image"]["error"];
+        } catch (\Exception $e){
+            $error = $e->getMessage();
+            require('MVC/Views/Private/adminformAnimal.php');
         }
+
     }
 
     public function addOneAdmin($name, $password, $email)
@@ -141,7 +162,17 @@ class BackEndController {
         $checkemails = $userManager->checkEmail($email);
         try {
             if ($checkemails['email'] === $email){
-                throw new \Exception('Email déja enregistré dans la base de données');
+                //IF the email exists -> send a new password
+                $userManager->modifyProfile(password_hash($result, PASSWORD_DEFAULT),$name);
+                $from = "spa.chamalieres.contact@gmail.com";
+                $to = $email; 
+                $subject = "Création compte administrateur SPA Chamalières"; 
+                $msg = 'Votre mot de passe a été réinitialisé.
+                Votre mot de passe temporaire est le suivant : ' . $result . '
+                Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
+                $headers = "From:" . $from;
+                mb_send_mail($to,$subject,$msg, $headers);
+                throw new \Exception('Le nouveau mot de passe à été envoyé !');
             } else {
                 //If not we sent name password and email to the database
                 $addanAdmin = $userManager->addAdmin($name, password_hash($result, PASSWORD_DEFAULT), $email);
@@ -153,17 +184,18 @@ class BackEndController {
                     $from = "spa.chamalieres.contact@gmail.com";
                     $to = $email; 
                     $subject = "Création compte administrateur SPA Chamalières"; 
-                    $message = 'Votre compte administrateur a bien été crée !
+                    $msg = 'Votre compte administrateur a bien été crée !
                     Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.
                     Votre mot de passe temporaire : ' . $result . '
                     Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
                     $headers = "From:" . $from;
-                    mb_send_mail($to,$subject,$message, $headers);
+                    mb_send_mail($to,$subject,$msg, $headers);
                     header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
                 }
             }
         } catch (\Exception $e){
-            echo 'Exception reçue : ',  $e->getMessage(), "\n";
+            $error = $e->getMessage();
+            require('MVC/Views/Private/adminManageRights.php');
         }
 
     }
@@ -185,7 +217,7 @@ class BackEndController {
             }
         } catch (\Exception $e){
             $error = $e->getMessage();
-            require ('MVC/Views/Private/adminProfile.php');
+            require('MVC/Views/Private/adminProfile.php');
         }
     }
 
