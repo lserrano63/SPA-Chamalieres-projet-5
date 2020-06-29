@@ -13,7 +13,6 @@ class AnimalSort {
         this.animals = document.querySelectorAll(".animals");
         this.all = document.getElementById("all");
         this.messageNoItem = document.getElementById("messageNoItem");
-        
         this.initControls();
     } 
 
@@ -39,6 +38,15 @@ class AnimalSort {
 
     initControls(){
         this.cats.addEventListener("click", this.sort.bind(this));
+        this.dogs.addEventListener("click", this.sort.bind(this));
+        this.hamsters.addEventListener("click", this.sort.bind(this));
+        this.rats.addEventListener("click", this.sort.bind(this));
+        this.rabbits.addEventListener("click", this.sort.bind(this));
+        this.parrots.addEventListener("click", this.sort.bind(this));
+        this.fishes.addEventListener("click", this.sort.bind(this));
+        this.snakes.addEventListener("click", this.sort.bind(this));
+        this.mouses.addEventListener("click", this.sort.bind(this));
+        this.turtles.addEventListener("click", this.sort.bind(this));
         this.all.addEventListener("click", this.sort.bind(this));
     }
 }
