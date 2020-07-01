@@ -1,9 +1,39 @@
-/* Map */
-#map {
-    height:500px;
+/* Section's colors */
+header {
+	background-color: #fff;
 }
 
-.blue_marker{
+footer, #slider_buttons {
+	background-color: #63594c;
+}
+#infos, #mentions, #post, #posts, #animal, #animals, #login, #admin, #profile, #adminPostView, #adminPostCreation, #adminModify, #adminRights, #adminComments, #adminAnimalView, #adminFormAnimal, #adminAnimalModify {
+	background-color: #e6e2e2;
+}
+#map_h2 {
+	background-color: #e4d7c8;
+}
+#slider {
+	background-color: #b5a58e;
+}
+#don {
+	background-color: #d0c5b7;
+}
+#contact {
+	background-color: #a59782;
+}
+
+/*  Header */
+header img {
+	width: 35%;
+}
+
+/* Map */
+#map {
+	height:600px;
+	width:60%;
+}
+
+.red_marker{
 	filter:hue-rotate(240deg);
 }
 .green_marker{
@@ -26,30 +56,21 @@
 	height:100%;
 	width:100%;
 }
-figure {
-	display:flex;
-	margin: 0;
-	justify-content: center;
-	align-items: center;
-	height: 350px;
-	text-align:center;
-}
+
 figure img {
 	max-width: 700px;
 	max-height:350px;
-	padding-right: 2%;
 }
 figcaption {
 	text-align: center;
 	font-size: 1.25em;
 }
-
 #slider_buttons {
-	display: flex;
 	position :relative;
-	margin-top: 1%;
+	width:50%;
 	height:75px;
 	justify-content: center;
+	border-radius: 10px;
 }
 #button_left, #button_right, #button_pause, #button_play{
 	position :absolute;
@@ -58,7 +79,7 @@ figcaption {
 	border-radius: 50%;
 	border: none;
 	padding:0;
-	color:#3D9970;
+	color:#eb651b;
 	box-sizing: content-box;
 }
 #button_left:focus, #button_right:focus, #button_pause:focus, #button_play:focus{
@@ -73,8 +94,16 @@ figcaption {
 }
 #button_play:hover,#button_right:hover,#button_pause:hover,#button_left:hover {
 	color:white;
-	border:1px solid #3D9970;
-	background-color: #3D9970;
+	border:1px solid #eb651b;
+	background-color: #eb651b;
+}
+
+/* Don's section */
+#don img {
+	width: 50%;
+}
+#don p {
+	width: 80%;
 }
 
 /* Comments button report */
@@ -92,4 +121,31 @@ figcaption {
 }
 #check:focus{
     outline: none;
+}
+
+/* Primary Button BT */
+
+.btn-primary {
+	background-color: #eb651b !important;
+	border-color: #eb651b !important;
+}
+.btn-primary:hover{
+	background-color: #f88648 !important;
+	border-color: #f88648 !important;
+}
+
+/* Secondary Background BT */
+
+.bg-secondary {
+	background-color:#bdbdbd !important;
+}
+
+/* All animals Page img */
+#all_animals img{
+	width:80%;
+}
+
+/* TinyMce textarea height adjusted */
+div.tox.tox-tinymce {
+	min-height: 350px !important;
 }
