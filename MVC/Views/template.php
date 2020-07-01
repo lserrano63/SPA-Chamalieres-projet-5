@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" type="image/png" href="">
+        <link rel="shortcut icon" type="image/png" href="/SPA-Chamalieres/images/logo.png">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/f42ba57ba1.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -16,27 +16,25 @@
     </head>
         
     <body>
-
-        <header>
-            <nav class="d-flex justify-content-center text-center">
-                <ul class="container nav row">
-                    <div class="col-12 d-flex flex-wrap">
+        <header class="container-fluid d-flex sticky-top p-0">
+            <a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil"><img src="/SPA-Chamalieres/images/logo.png" alt="logo de la Spa"></a>
+            <nav class="container-fluid d-flex justify-content-center text-center p-0">
+                <ul class="container-fluid nav row p-0">
+                    <div class="align-items-center col-12 d-flex flex-wrap p-0">
                     <?php 
                         if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
                         ?>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil">Accueil</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Contact">Contact</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Nos-Animaux">Animaux</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-1">Actualités</a></li>
-                        <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Administration">Administration</a></li>
-                        <li class="nav-item col-sm-6 col-6"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Déconnexion">Déconnexion</a></li>
+                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil">Accueil</a></li>
+                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Nos-Animaux">Animaux</a></li>
+                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-1">Actualités</a></li>
+                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Administration">Administration</a></li>
+                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Déconnexion">Déconnexion</a></li>
                         <?php    
                         } else {
                         ?>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil">Accueil</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Contact">Contact</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Nos-Animaux">Animaux</a></li>
-                        <li class="nav-item col-sm-3 col-3"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-1">Actualités</a></li>
+                        <li class="nav-item col-sm-4 col-3 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil">Accueil</a></li>
+                        <li class="nav-item col-sm-4 col-3 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Nos-Animaux">Animaux</a></li>
+                        <li class="nav-item col-sm-4 col-3 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-1">Actualités</a></li>
                     <?php        
                         }
                     ?>
@@ -63,8 +61,8 @@
     ?>                
         <?= $content ?>
 
-        <footer class="container navbar page-footer">
-            <div class="container row d-flex text-center justify-content-center m-auto">
+        <footer class="container-fluid navbar page-footer">
+            <section class="container row d-flex text-center justify-content-center m-auto">
                 <ul id="social_networks" class="d-flex col-12 col-sm-6 justify-content-around list-unstyled p-0">
                     <li><a href=""><i class="fab fa-twitter fa-2x"></i></a></li>
                     <li><a href=""><i class="fab fa-facebook fa-2x"></i></a></li>
@@ -84,7 +82,7 @@
                 <?php        
                    }
                 ?>   
-            </div>
+            </section>
         </footer>
     </body>
 </html>
