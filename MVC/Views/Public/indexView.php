@@ -71,7 +71,7 @@
     <div class="d-flex flex-column">
         <h2>Participez</h2>
         <p class="m-auto pb-2">Aidez-nous à mener à bien nos missions ! La SPA vit principalement de la générosité du public et compte donc sur votre soutien pour secourir, défendre et protéger les animaux.</p>
-        <a class="mb-2" href="https://soutenir.la-spa.fr/b/mon-don"><img class="img-fluid rounded" src="/SPA-Chamalieres/images/dog_don.jpg"></a>
+        <a class="mb-2" href="https://soutenir.la-spa.fr/b/mon-don"><img class="img-fluid rounded" src="/SPA-Chamalieres/images/dog_don.jpg" alt="chien regardant en l'air"></a>
         <a class="btn btn-primary m-auto rounded" href="https://soutenir.la-spa.fr/b/mon-don">Je fais un don</a>
     </div>
 </section>

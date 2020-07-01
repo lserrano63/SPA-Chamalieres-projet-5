@@ -5,17 +5,17 @@
         <nav class="d-flex justify-content-center text-center p-0 mb-2">
             <ul class="container nav row p-0">
                 <div class="col-12 d-flex flex-wrap p-0 text-center">
-                    <li id="chat" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Chat</li>
-                    <li id="chien" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Chien</li>
-                    <li id="hamster" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Hamster</li>
-                    <li id="rat" class="col-sm-2 col-2 btn btn-primary mr-1 mb-1">Rat</li>
-                    <li id="lapin" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Lapin</li>
-                    <li id="perroquet" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Perroquet</li>
-                    <li id="poisson" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Poisson</li>
-                    <li id="serpent" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Serpent</li>
-                    <li id="souris" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Souris</li>
-                    <li id="tortue" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Tortue</li>
-                    <li id="all" class="col-sm-2 col-3 btn btn-primary mr-1 mb-1">Tous les types</li>
+                    <li id="chat" class="btn btn-primary mr-1 mb-1">Chat</li>
+                    <li id="chien" class="btn btn-primary mr-1 mb-1">Chien</li>
+                    <li id="hamster" class="btn btn-primary mr-1 mb-1">Hamster</li>
+                    <li id="rat" class="btn btn-primary mr-1 mb-1">Rat</li>
+                    <li id="lapin" class="btn btn-primary mr-1 mb-1">Lapin</li>
+                    <li id="perroquet" class="btn btn-primary mr-1 mb-1">Perroquet</li>
+                    <li id="poisson" class="btn btn-primary mr-1 mb-1">Poisson</li>
+                    <li id="serpent" class="btn btn-primary mr-1 mb-1">Serpent</li>
+                    <li id="souris" class="btn btn-primary mr-1 mb-1">Souris</li>
+                    <li id="tortue" class="btn btn-primary mr-1 mb-1">Tortue</li>
+                    <li id="all" class="btn btn-primary mr-1 mb-1">Tous les types</li>
                 </div>
             </ul>
         </nav>

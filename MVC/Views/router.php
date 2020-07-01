@@ -5,6 +5,7 @@ $frontEndController = new \App\frontend\FrontEndController();
 $backEndController = new \App\backend\BackEndController();
 
 try {
+
     if($action == 'spajson')
     {
         require('MVC/Models/data_to_json.php');
@@ -25,7 +26,7 @@ try {
             }
         }
         else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
+            throw new \Exception('Erreur : aucun identifiant de billet envoyé');
         } 
     } elseif($action == 'viewAnimal')
     {
@@ -121,6 +122,8 @@ try {
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostDelete')){
             $backEndController->deleteOnePost($_GET['id']);
         }
+    } else {
+        header('Location : https://projetsls.fr/SPA-Chamalieres');
     }
 } catch (\Exception $e){
     $error = $e->getMessage();

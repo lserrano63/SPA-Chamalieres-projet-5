@@ -27,8 +27,8 @@
                         <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil">Accueil</a></li>
                         <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Nos-Animaux">Animaux</a></li>
                         <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Actualités/Page-1">Actualités</a></li>
-                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Administration">Administration</a></li>
-                        <li class="nav-item col-sm-2 col-4 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Déconnexion">Déconnexion</a></li>
+                        <li class="nav-item col-sm-3 col-6 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Administration">Administration</a></li>
+                        <li class="nav-item col-sm-3 col-5 p-0"><a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Déconnexion">Déconnexion</a></li>
                         <?php    
                         } else {
                         ?>
