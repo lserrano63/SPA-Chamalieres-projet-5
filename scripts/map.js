@@ -3,18 +3,17 @@ class Map
   constructor() 
   {
     this.map = L.map('map').setView([47.19, 2.87], 6);
-    //this.markers = L.markerClusterGroup();
     this.greenIcon = L.icon({
       iconUrl: 'images/marker.png',
       iconSize:     [25, 41], 
       iconAnchor: [13,41],
       className : 'green_marker',
     });
-    this.blueIcon = L.icon({
+    this.redIcon = L.icon({
       iconUrl: 'images/marker.png',
       iconSize:     [25, 41], 
       iconAnchor: [13,41],
-      className : 'blue_marker',
+      className : 'red_marker',
     });
     this.chosenIcon = this.greenIcon;
     this.url = "https://projetsls.fr/SPA-Chamalieres/index.php?action=spajson";
@@ -55,12 +54,11 @@ class Map
         this.chosenIcon = this.greenIcon;   
       }
       else {
-        this.chosenIcon = this.blueIcon;
+        this.chosenIcon = this.redIcon;
       }
       let marker = L.marker([data[i].Lat_coord,data[i].Long_coord], {icon :this.chosenIcon});
-      //this.map.addLayer(marker); //adds the given layer to the map
       marker.addTo(this.map);
-      marker.bindPopup("<center><b>" + data[i].name+"</b></center>" + data[i].adress +"</br>"+ "Numéro de téléphone : " + data[i].telephone); // Add a popup to every markers
+      marker.bindPopup("<center><b>" + data[i].name+"</b></center>" + data[i].adress +"</br>"+ "Numéro de téléphone : 0" + data[i].telephone); // Add a popup to every markers
     }
   }
 }
