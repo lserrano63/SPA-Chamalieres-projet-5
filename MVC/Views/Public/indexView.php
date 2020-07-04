@@ -15,8 +15,6 @@
     <h2 class="text-center">Nos dernières actualités</h2>
     <div class="container rounded bg-secondary pt-3 pb-1">
     <?php
-        $postManager = new \App\Models\PostManager();
-        $postsIndex = $postManager->getPostsIndex();
         foreach ($postsIndex as $data) 
         {
             ?>
@@ -26,9 +24,9 @@
                 <p><?= substr(nl2br($data['post']),0,300);?> ...<br>
                 <a class="btn btn-primary mb-1 rounded" href="https://projetsls.fr/SPA-Chamalieres/Posts/Post-<?= $data['id']; ?>">Voir plus</a></p>    
             </article>
-            <?php
+        <?php
         }
-            ?>
+        ?>
     </div>
 </section>
 
@@ -46,18 +44,16 @@
 			<figcaption>Voici les nouveaux arrivants au refuge :</figcaption>
 		</figure>
     <?php 
-    $animalManager = new \App\Models\AnimalManager();
-    $slider = $animalManager->sliderAnimals();
-    foreach ($slider as $data) 
-    {
-    ?>
-		<figure class="slider_image not_visible text-center">
-			<img class="img-fluid" src="images/animals/<?= $data['id'];?>.jpg" alt="<?= $data['name'];?>">
-			<figcaption><a href="https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-<?= $data['id'];?>"><?= $data['name'];?></a></figcaption>
-		</figure>
-    <?php
-    }
-    ?>
+        foreach ($slider as $data) 
+        {
+            ?>
+            <figure class="slider_image not_visible text-center">
+                <img class="img-fluid" src="images/animals/<?= $data['id'];?>.jpg" alt="<?= $data['name'];?>">
+                <figcaption><a href="https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-<?= $data['id'];?>"><?= $data['name'];?></a></figcaption>
+            </figure>
+        <?php
+        }
+        ?>
 	</div>
 	<div id="slider_buttons" class="d-flex m-auto align-items-center">
 		<button id="button_left"><i class="fas fa-arrow-circle-left fa-3x"></i></button>

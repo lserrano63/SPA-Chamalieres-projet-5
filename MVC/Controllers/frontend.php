@@ -8,6 +8,20 @@ use App\Models\PostManager;
 
 class FrontEndController {
 
+    public function indexView(){
+        $animalManager = new \App\Models\AnimalManager();
+        $slider = $animalManager->sliderAnimals();
+        $postManager = new \App\Models\PostManager();
+        $postsIndex = $postManager->getPostsIndex();
+        require('MVC/Views/Public/indexView.php');
+    }
+
+    public function animalsView(){
+        $animalManager = new \App\Models\AnimalManager();
+        $animals = $animalManager->getAllAnimals();
+        require('MVC/Views/Public/animalsView.php');
+    }
+
     public function viewPost(){
         $postManager = new PostManager();
         $commentManager = new CommentManager();

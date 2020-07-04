@@ -33,7 +33,7 @@ try {
         $frontEndController->viewAnimal();
     } elseif($action == 'viewAnimals')
     {
-        require('MVC/Views/Public/animalsView.php');
+        $frontEndController->animalsView();
     } elseif ($action == 'addCommentAnimal') 
     {
         if (isset($_GET['id']) && $_GET['id'] > 0) 
@@ -84,7 +84,7 @@ try {
                 require('MVC/Views/Private/adminformAnimal.php');
             }
         } elseif ($action == 'adminAnimal') {
-            require('MVC/Views/Private/adminAnimalView.php');
+            $backEndController->adminAnimalsView();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalModify')) {
             $backEndController->viewAnimalAdmin();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalModified')){
@@ -92,7 +92,7 @@ try {
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminAnimalDelete')){
             $backEndController->deleteOneAnimal($_GET['id']);
         } elseif ($action == 'viewComments') {
-            require('MVC/Views/Private/adminManageComments.php');
+            $backEndController->adminCommentsView();
         } elseif ($action == 'accept') {
             if (isset($_GET['id']) && $_GET['id'] > 0){
                 $backEndController->acceptComment($_GET['id']);

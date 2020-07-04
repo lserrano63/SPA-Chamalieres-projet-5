@@ -4,8 +4,6 @@
 <section id="adminAnimalView" class="pt-2 pb-4">
     <div class="container rounded bg-secondary mt-3 pt-1 pb-3">
     <?php 
-        $animalManager = new \App\Models\AnimalManager();
-        $animals = $animalManager->getAnimals();
         foreach ($animals as $data) 
         {
             ?>

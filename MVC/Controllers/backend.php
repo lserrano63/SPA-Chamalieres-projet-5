@@ -8,6 +8,19 @@ use App\Models\PostManager;
 
 class BackEndController {
 
+    public function adminAnimalsView(){
+        $animalManager = new \App\Models\AnimalManager();
+        $animals = $animalManager->getAnimals();
+        require('MVC/Views/Private/adminAnimalView.php');
+    }
+    
+    public function adminCommentsView(){
+        $commentManager = new \App\Models\CommentManager();
+        $reportedCommentsPosts = $commentManager->getReportedCommentsPosts();
+        $reportedCommentsAnimals = $commentManager->getReportedCommentsAnimals();
+        require('MVC/Views/Private/adminManageComments.php');
+    }
+
     public function addOnePost($title, $post)
     {
         $postManager = new PostManager();

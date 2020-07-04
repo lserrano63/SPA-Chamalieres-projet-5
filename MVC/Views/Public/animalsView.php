@@ -22,8 +22,6 @@
         <section id="all_animals">
             <span id="messageNoItem" class="not_visible text-center m-auto">Rien n'a été trouvé lors de votre recherche !</span>
         <?php
-            $animalManager = new \App\Models\AnimalManager();
-            $animals = $animalManager->getAllAnimals();
             foreach ($animals as $data) 
             {
                 ?>

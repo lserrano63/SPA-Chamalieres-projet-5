@@ -5,8 +5,6 @@
     <section class="container rounded bg-secondary mt-3 pb-2">
         <h3 class="text-center">Commentaires signalés depuis vos posts</h3>
             <?php
-            $commentManager = new \App\Models\CommentManager();
-            $reportedCommentsPosts = $commentManager->getReportedCommentsPosts();
             foreach ($reportedCommentsPosts as $reportedFromPost) {
             ?>
                 <div class="bg-light mb-3 p-1">
@@ -23,8 +21,6 @@
     <section class="container rounded bg-secondary mt-3 pb-2">
         <h3 class="text-center">Commentaires signalés depuis vos animaux</h3>
             <?php
-            $commentManager = new \App\Models\CommentManager();
-            $reportedCommentsAnimals = $commentManager->getReportedCommentsAnimals();
             foreach ($reportedCommentsAnimals as $reportedFromAnimals) {
             ?>
                 <div class="bg-light mb-3 p-1">
