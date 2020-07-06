@@ -37,11 +37,11 @@ class AnimalSort {
 
     activeButton(e){
         for (let btn of this.buttons) {
-            if (btn.classList.contains("test")) {
-                btn.classList.remove("test");
+            if (btn.classList.contains("activeButton")) {
+                btn.classList.remove("activeButton");
             }
         }
-        e.target.classList.add("test");
+        e.target.classList.add("activeButton");
     }
 
     initControls(){
