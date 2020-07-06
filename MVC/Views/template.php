@@ -45,7 +45,7 @@
         <?php
             if (isset($error)){
         ?>
-        <section> 
+        <section class="p-3 mb-2 bg-warning text-dark text-center">
             <?= $error ?>
         </section>
 
@@ -53,7 +53,7 @@
         }
             if (isset($message)){
         ?>
-        <section> 
+        <section class="p-3 mb-2 bg-info text-white text-center">
             <?= $message ?>
         </section>
         <?php
