@@ -143,8 +143,7 @@ class BackEndController {
                         $lastanimal = $animalManager->lastAnimal();
                         move_uploaded_file($_FILES["animal_image"]["tmp_name"], "images/animals/" . $_FILES["animal_image"]["name"]);
                         rename("images/animals/" . $_FILES["animal_image"]["name"], "images/animals/" . $lastanimal['id'] . ".jpg");
-                        echo "Votre fichier a été téléchargé.";
-                        //header('Location: index.php?action=viewAnimals');
+                        throw new \Exception('Votre fichier a été téléchargé.');      
                     }
                 } else {
                     throw new \Exception('Error: Il y a eu un problème de téléchargement. Veuillez réessayer.');
