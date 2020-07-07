@@ -21,7 +21,7 @@
             <article class="container bg-light">
                 <h2 class="text-center"><?= $data['title'];?></h2>
                 <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
-                <p><?= substr($data['post'],0,300);?> ...
+                <p><?= substr($data['post'],0,300);?> ...</p>
                 <p><a class="btn btn-primary mb-1 rounded" href="https://projetsls.fr/SPA-Chamalieres/Posts/Post-<?= $data['id']; ?>">Voir plus</a></p>
             </article>
         <?php
@@ -72,7 +72,7 @@
     </div>
 </section>
 
-<section id="contact" class="row d-flex text-center justify-content-center">
+<section id="contact" class="d-flex text-center justify-content-center">
     <div class="container">
         <h3>Pour nous contacter :</h3>
         <p class="font-weight-bold">Société Protectrice des Animaux,<br>
