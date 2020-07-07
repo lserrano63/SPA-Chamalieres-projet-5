@@ -5,17 +5,16 @@ $frontEndController = new \App\frontend\FrontEndController();
 $backEndController = new \App\backend\BackEndController();
 
 try {
-
     if($action == 'spajson')
     {
-        require('MVC/Models/data_to_json.php');
-        require('MVC/Views/Private/spa_json.php');
+        $backEndController->spa_jsonView();
     } elseif($action == 'viewPost')
     {
         $frontEndController->viewPost();
     } elseif($action == 'viewPosts')
     {
-        require('MVC/Views/Public/postsView.php');
+        $frontEndController->postsView();
+
     } elseif ($action == 'addComment') 
     {
         if (isset($_GET['id']) && $_GET['id'] > 0) 
@@ -114,7 +113,7 @@ try {
                 $backEndController->modifyProfileAdmin($_POST['password'],$_POST['password_check'],$_SESSION['name']);
             }
         } elseif ($action == 'adminPost') {
-            require('MVC/Views/Private/adminPostView.php');
+            $backEndController->adminPostView();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModify')) {
             $backEndController->viewPostAdmin();
         } elseif ((isset($_GET['id']) && $_GET['id'] > 0) && ($action == 'adminPostModified')){
