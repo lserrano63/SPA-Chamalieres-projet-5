@@ -28,7 +28,7 @@
                 ?>
                 <article class="container bg-light animals mb-2 text-center" data-animal-type="<?=$data['type'];?>">
                     <h2 class="text-center"><?= $data['name'];?></h2>
-                    <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
+                    <p class="text-center">posté le <?= $data['creation_date_fr'];?>
                     <p class="text-center"><img alt ="<?= $data['name'];?> qui est un <?=$data['type'] ;?>" src="images/animals/<?= $data['id'];?>.jpg"></p>
                     <p class="text-center"><?= substr($data['description'],0,300);?> ...
                     <p><a class="btn btn-primary mb-1" href="https://projetsls.fr/SPA-Chamalieres/Animaux/Animal-<?= $data['id']; ?>">Voir plus</a></p>    
