@@ -21,10 +21,10 @@ class Slider {
 		else if (this.currentImage === -1) {
 			this.currentImage = this.images.length - 1;
 		}
-		this.affichage();
+		this.display();
 	}
 
-	affichage() {
+	display() { //Display the slider
 		this.images[this.currentImage].classList.remove("not_visible");
 	}
 
