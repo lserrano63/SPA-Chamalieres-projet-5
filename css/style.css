@@ -1,19 +1,76 @@
+html, body{
+	height: 100%;
+	margin: 0;
+}
+body {
+	display:flex;
+	flex-direction:column;
+	background-color: #e6e2e2;
+}
+footer{
+	margin-top:auto; 
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'sinkin_sans500_medium';
+    src: url('SinkinSans-500Medium-webfont.eot');
+    src: url('SinkinSans-500Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SinkinSans-500Medium-webfont.woff2') format('woff2'),
+         url('SinkinSans-500Medium-webfont.woff') format('woff'),
+         url('SinkinSans-500Medium-webfont.ttf') format('truetype'),
+         url('SinkinSans-500Medium-webfont.svg#sinkin_sans500_medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin_sans200_x_light';
+    src: url('SinkinSans-200XLight-webfont.eot');
+    src: url('SinkinSans-200XLight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SinkinSans-200XLight-webfont.woff2') format('woff2'),
+         url('SinkinSans-200XLight-webfont.woff') format('woff'),
+         url('SinkinSans-200XLight-webfont.ttf') format('truetype'),
+         url('SinkinSans-200XLight-webfont.svg#sinkin_sans200_x_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sinkin_sans200_x_light_italic';
+    src: url('SinkinSans-200XLightItalic-webfont.eot');
+    src: url('SinkinSans-200XLightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('SinkinSans-200XLightItalic-webfont.woff2') format('woff2'),
+         url('SinkinSans-200XLightItalic-webfont.woff') format('woff'),
+         url('SinkinSans-200XLightItalic-webfont.ttf') format('truetype'),
+         url('SinkinSans-200XLightItalic-webfont.svg#sinkin_sans200_x_light_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,h2,h3,h4 {
+	font-family: "sinkin_sans500_medium", sans-serif;
+}
+p, a {
+	font-family: "sinkin_sans200_x_light", sans-serif;
+}
 /* Section's colors */
 header {
 	background-color: #fff;
 }
 
 footer, #slider_buttons {
-	background-color: #63594c;
+	background-color: #8E7E69;
 }
 #infos, #mentions, #post, #posts, #animal, #animals, #login, #admin, #profile, #adminPostView, #adminPostCreation, #adminModify, #adminRights, #adminComments, #adminAnimalView, #adminFormAnimal, #adminAnimalModify {
 	background-color: #e6e2e2;
 }
-#map_h2 {
-	background-color: #e4d7c8;
-}
 #slider {
-	background-color: #b5a58e;
+	background-color: #DED7D7;	
+}
+#map_h2 {
+	background-color: #D1CACA;
 }
 #don {
 	background-color: #d0c5b7;
@@ -52,7 +109,6 @@ header img {
 #slider {
 	padding-top: 1%;
 	position:relative;
-	overflow: hidden;
 	height:100%;
 	width:100%;
 }
@@ -116,7 +172,7 @@ figcaption {
 .comment:hover .fa-ban{
     display:inline;
 }
-#comment input {
+.div_comment input {
     border:none;
 }
 #check:focus{
@@ -150,4 +206,21 @@ figcaption {
 /* TinyMce textarea height adjusted */
 div.tox.tox-tinymce {
 	min-height: 350px !important;
+}
+
+/* Media queries */
+@media screen and (max-width: 769px) and (min-width: 200px){
+	.nav-link {
+		width : 70px;
+	}
+	header img {
+		width: 100%;
+	}
+	#map {
+		height:600px;
+		width:80%;
+	}
+	#don img {
+		width: 60%;
+	}
 }
