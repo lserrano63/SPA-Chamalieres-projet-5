@@ -22,6 +22,25 @@ class FrontEndController {
         require('MVC/Views/Public/animalsView.php');
     }
 
+    public function postsView()
+    {
+        $postManager = new \App\Models\PostManager();
+        $pagiPost = $postManager->paginationPost();
+        $numberPosts = $pagiPost['total'];
+        $messagePerPage = 3;
+        $totalPages = ceil($numberPosts / $messagePerPage); //Round fractions up
+
+        if(isset($_GET['page']) AND $_GET['page'] > 0 AND $_GET['page'] <= $totalPages) {
+            $pageActive = intval($_GET['page']); //Get the integer value of a variable
+        }
+        else {
+            $pageActive = 1;
+        }
+        $firstMessage = ($pageActive-1) * $messagePerPage; 
+        $posts = $postManager->getPosts($firstMessage,$messagePerPage);
+        require('MVC/Views/Public/postsView.php');
+    }
+
     public function viewPost(){
         $postManager = new PostManager();
         $commentManager = new CommentManager();
