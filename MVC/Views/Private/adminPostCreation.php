@@ -10,12 +10,16 @@
                     <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Post" method="post">
                         <div class="form-group">
                             <label for="title">Titre :</label>
-                            <input name="title" type="text" id="title" class="form-control" required>
                             <?php if (isset($previousPostTitle)){
-                                echo $previousPostTitle;
+                            ?>
+                                <input name="title" type="text" id="title" class="form-control" required value="<?=$previousPostTitle;?>">
+                            <?php
+                            } else {
+                            ?>
+                                <input name="title" type="text" id="title" class="form-control" required>
+                            <?php
                             }
                             ?>
-                            </input>
                         </div>
                         <div class="form-group">
                             <label for="post">Post :</label>
