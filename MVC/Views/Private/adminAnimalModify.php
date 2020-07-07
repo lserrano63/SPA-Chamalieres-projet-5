@@ -63,7 +63,7 @@
                         <div class="form-group">
                         <label for="sexe">Sexe :</label>
                             <select id="sexe" name="sexe">
-                                <option value="<?= $animalAdmin['sexe'];?>" disabled selected><?= $animalAdmin['sexe'];?></option>
+                                <option value="<?= ucfirst($animalAdmin['sexe']);?>" disabled selected><?= $animalAdmin['sexe'];?></option>
                                 <option value="male">Male</option>
                                 <option value="femelle">Femelle</option>
                             </select>
