@@ -1,4 +1,4 @@
-# Jean-Forteroche
+# SPA-Chamalieres
 
 Projet 5 Openclassrooms / Dév Web Junior
 https://openclassrooms.com/fr/paths/48/projects/34/assignment
