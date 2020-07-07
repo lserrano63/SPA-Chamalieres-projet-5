@@ -22,7 +22,6 @@ class PostManager extends Manager{
         return $posts;
     }
 
-
     public function getPost($postId)
     {
         $db = $this->dbConnection();
