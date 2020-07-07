@@ -17,7 +17,7 @@ class AnimalSort {
         this.initControls();
     } 
 
-    sort(e){
+    sort(e){ // sort the animals
         let hasfounditem = false;
         let filter = e.target.id;
         for (let item of this.animals) {
@@ -28,14 +28,14 @@ class AnimalSort {
                 item.classList.add("not_visible");
             }
         }
-        if (hasfounditem){
+        if (hasfounditem){ //if the sort find one animal or more we hide the section
             this.messageNoItem.classList.add("not_visible");
         } else {
             this.messageNoItem.classList.remove("not_visible");
         }
     }
 
-    activeButton(e){
+    activeButton(e){ // Change CSS for the active button / One button can be active at the same time
         for (let btn of this.buttons) {
             if (btn.classList.contains("activeButton")) {
                 btn.classList.remove("activeButton");
