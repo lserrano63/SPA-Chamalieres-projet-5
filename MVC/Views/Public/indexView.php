@@ -18,7 +18,7 @@
         foreach ($postsIndex as $data) 
         {
             ?>
-            <article class="container bg-light">
+            <article class="container bg-light mb-2">
                 <h2 class="text-center"><?= $data['title'];?></h2>
                 <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
                 <p><?= substr($data['post'],0,300);?> ...</p>
