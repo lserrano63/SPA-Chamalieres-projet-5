@@ -19,8 +19,8 @@
         <header class="container-fluid d-flex sticky-top p-0">
             <a class="nav-link" href="https://projetsls.fr/SPA-Chamalieres/Acceuil"><img src="/SPA-Chamalieres/images/logo.png" alt="logo de la Spa"></a>
             <nav class="container-fluid d-flex justify-content-center text-center p-0">
-                <ul class="container-fluid nav row p-0">
-                    <div class="align-items-center col-12 d-flex flex-wrap p-0">
+                <div class="container-fluid row p-0">
+                    <ul class="align-items-center col-12 d-flex flex-wrap p-0 nav">
                     <?php 
                         if (isset($_SESSION['connected']) && $_SESSION['connected'] == true) {
                         ?>
@@ -38,8 +38,8 @@
                     <?php        
                         }
                     ?>
-                    </div>   
-                </ul>
+                    </ul>   
+                </div>
             </nav>
         </header>
         <?php
@@ -84,5 +84,6 @@
                 ?>   
             </section>
         </footer>
+        <?= $scripts ?>
     </body>
 </html>
