@@ -10,7 +10,6 @@
                     
             <p>
                 <?= nl2br($post['post']); ?>
-            </p>
         </article>
 
         <section id="comments" class="bg-light mt-2 mb-2 p-3">
@@ -18,7 +17,7 @@
             <?php foreach ($postComments as $comments) 
             {
             ?>
-                <div id="comment" class="comment position-relative">
+                <div class="div_comment comment position-relative">
                     <p><strong><?= htmlspecialchars($comments['author']); ?></strong> le <?= $comments['comment_date_fr']; ?></p>                
                     <p><?= nl2br(htmlspecialchars($comments['comment'])); ?></p>
                     <a id="report_button" href="https://projetsls.fr/SPA-Chamalieres/Signalement/Commentaire-<?= $comments['id']?>-Post-<?= $post['id']?>" title="Signaler"><i class="fas fa-ban btn btn-primary"></i></a>
@@ -30,17 +29,17 @@
 
         <section class="container mb-2 p-0">
             <div class="card card-container">
-                <h3 class="card-header">Ajouter votre commentaire</h2>
+                <h3 class="card-header">Ajouter votre commentaire</h3>
                 <div class="card-body">
                     <div class="login-form">
                         <form action="https://projetsls.fr/SPA-Chamalieres/Ajout-Commentaire/Post-<?= $post['id'] ?>" method="post">
                             <div class="form-group">
-                                <label for="pseudo">Nom :</label>
+                                <label for="author">Nom :</label>
                                 <input name="author" type="text" id="author" class="form-control" required/>
                             </div>
                             <div class="form-group">
-                                <label for="message">Message :</label>
-                                <textarea type="text" name="comment" id="comment" class="form-control" required></textarea>
+                                <label for="comment">Message :</label>
+                                <textarea name="comment" id="comment" class="form-control" required></textarea>
                             </div>
                             <div class="form-group text-center">
                                 <label for="check">Voulez-vous accepter la <a href="https://projetsls.fr/SPA-Chamalieres/Mentions-Légales">politique de confidentialité</a> : </label>
