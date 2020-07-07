@@ -21,18 +21,12 @@
             <article class="container bg-light">
                 <h2 class="text-center"><?= $data['title'];?></h2>
                 <p class="text-center">posté le <?= $data['creation_date_fr'];?></p>
-                <p><?= substr(nl2br($data['post']),0,300);?> ...<br>
-                <a class="btn btn-primary mb-1 rounded" href="https://projetsls.fr/SPA-Chamalieres/Posts/Post-<?= $data['id']; ?>">Voir plus</a></p>    
+                <p><?= substr($data['post'],0,300);?> ...
+                <p><a class="btn btn-primary mb-1 rounded" href="https://projetsls.fr/SPA-Chamalieres/Posts/Post-<?= $data['id']; ?>">Voir plus</a></p>
             </article>
         <?php
         }
         ?>
-    </div>
-</section>
-
-<section id="map_h2"class="pt-2 pb-4">
-    <h2 class="text-center">Retrouvez tous les sites de la SPA en France</h2>
-    <div id="map" class="m-auto rounded">
     </div>
 </section>
 
@@ -63,6 +57,12 @@
 	</div>
 </section>
 
+<section id="map_h2" class="pt-2 pb-4">
+    <h2 class="text-center">Retrouvez tous les sites de la SPA en France</h2>
+    <div id="map" class="m-auto rounded">
+    </div>
+</section>
+
 <section id="don" class="pt-2 pb-4 text-center">
     <div class="d-flex flex-column">
         <h2>Participez</h2>
@@ -72,7 +72,7 @@
     </div>
 </section>
 
-<section id="contact" class="row d-flex text-center justify-content-center m-auto">
+<section id="contact" class="row d-flex text-center justify-content-center">
     <div class="container">
         <h3>Pour nous contacter :</h3>
         <p class="font-weight-bold">Société Protectrice des Animaux,<br>
@@ -85,6 +85,8 @@
 </section>
 
 <?php $content = ob_get_clean(); ?>
+<?php ob_start(); ?>
+    <script src="scripts/map.js"></script>
+    <script src="scripts/slider.js"></script>
+<?php $scripts = ob_get_clean(); ?>
 <?php require('MVC/Views/template.php'); ?>
-<script src="scripts/map.js"></script>
-<script src="scripts/slider.js"></script>
