@@ -19,7 +19,7 @@
                         <div class="form-group">
                         <label for="type">Type d'animal :</label>
                             <select id="type" name="type">
-                                <option value="<?= $animalAdmin['type'];?>" disabled selected><?= ucfirst($animalAdmin['type']);?></option>
+                                <option value="<?= $animalAdmin['type'];?>" selected><?= ucfirst($animalAdmin['type']);?></option>
                                 <option value="chat">Chat</option>
                                 <option value="chien">Chien</option>
                                 <option value="hamster">Hamster</option>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                         <label for="age">Age :</label>
                             <select id="age" name="age">
-                                <option value="<?= $animalAdmin['age'];?>" disabled selected><?= $animalAdmin['age'];?> an(s)</option>
+                                <option value="<?= $animalAdmin['age'];?>" selected><?= $animalAdmin['age'];?> an(s)</option>
                                 <option value="0">0 an</option>
                                 <option value="1">1 an</option>
                                 <option value="2">2 ans</option>
@@ -63,7 +63,7 @@
                         <div class="form-group">
                         <label for="sexe">Sexe :</label>
                             <select id="sexe" name="sexe">
-                                <option value="<?= ucfirst($animalAdmin['sexe']);?>" disabled selected><?= $animalAdmin['sexe'];?></option>
+                                <option value="<?= ucfirst($animalAdmin['sexe']);?>" selected><?= ucfirst($animalAdmin['sexe']);?></option>
                                 <option value="male">Male</option>
                                 <option value="femelle">Femelle</option>
                             </select>
