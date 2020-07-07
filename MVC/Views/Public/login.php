@@ -10,7 +10,7 @@
 				<div class="login-form">
 					<form action="https://projetsls.fr/SPA-Chamalieres/Connection" method="post">
 						<div class="form-group">
-							<label for="pseudo">Pseudonyme :</label>
+							<label for="name">Pseudonyme :</label>
 							<input name="name" type="text" id="name" class="form-control" required/>
 						</div>
 						<div class="form-group">
