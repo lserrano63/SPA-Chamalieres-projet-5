@@ -14,7 +14,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description :</label>
-                            <textarea required type="text" name="description" id="description" class="form-control"><?= $animalAdmin['description'];?></textarea>
+                            <textarea required name="description" id="description" class="form-control"><?= $animalAdmin['description'];?></textarea>
                         </div>
                         <div class="form-group">
                         <label for="type">Type d'animal :</label>
