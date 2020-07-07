@@ -93,7 +93,7 @@ class BackEndController {
         $img_jpeg = 'images/animals/' . $animal_id . '.jpeg';
         if(file_exists($img_jpg)){
             unlink($img_jpg);
-        } else if (file_exists($img_jpeg)){
+        } elseif (file_exists($img_jpeg)){
             unlink($img_jpeg);
         }
         header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Animaux');
@@ -228,7 +228,7 @@ class BackEndController {
                     $msg = 'Votre compte administrateur a bien été crée !'. "\n" . 'Pour vous connecter, veuillez utiliser votre adresse e-mail et votre mot de passe ci-dessous.' . "\n" . 'Votre mot de passe temporaire : ' . $result . "\n" . 'Pour changer votre mot de passe : https://projetsls.fr/SPA-Chamalieres/Profil'; 
                     $headers = "From:" . $from;
                     mb_send_mail($to,$subject,$msg, $headers);
-                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration');
+                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration/Mail-nouvel-administrateur-envoyé');
                 }
             }
         } catch (\Exception $e){
@@ -248,7 +248,7 @@ class BackEndController {
                     throw new \Exception('Votre mot de passe ne peut être modifié');
                 }
                 else {
-                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration?msg=success');
+                    header('Location: https://projetsls.fr/SPA-Chamalieres/Administration/Mot-de-passe-changé');
                 }
             } else {
                 throw new \Exception('Vos mots de passes ne sont pas identiques !');
@@ -268,9 +268,11 @@ class BackEndController {
 
     public function showAdminView(){
         if (isset($_GET['msg'])){
-            if ($_GET['msg'] == 'success') {
+            if ($_GET['msg'] == 'pass_success') {
                 $message = 'Votre mot de passe à été réinitialisé !';
-            }
+            } elseif ($_GET['msg'] == 'new_admin_success') {
+                $message = 'Le mail a été envoyé a l\'adresse indiquée !';
+            } 
         }
         require('MVC/Views/Private/adminView.php');
     }
