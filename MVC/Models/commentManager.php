@@ -52,22 +52,6 @@ class CommentManager extends Manager {
         return $remove;
     }
 
-    public function removeAllCommentsFromPost($post_id)
-    {
-        $db = $this->dbConnection();
-        $removeaComment = $db->prepare('DELETE FROM comments WHERE post_id=?');
-        $remove = $removeaComment->execute(array($post_id));
-        return $remove;
-    }
-
-    public function removeAllCommentsFromAnimalPost($animal_id)
-    {
-        $db = $this->dbConnection();
-        $removeaComment = $db->prepare('DELETE FROM comments WHERE animal_id=?');
-        $remove = $removeaComment->execute(array($animal_id));
-        return $remove;
-    }
-
     public function report($comment_id)
     {
         $db = $this->dbConnection();
@@ -79,7 +63,7 @@ class CommentManager extends Manager {
     public function getReportedCommentsPosts()
     {
         $db = $this->dbConnection();
-        $reportComPosts = $db->query('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE reported = 1 AND (post_id != 0 AND animal_id=0) ORDER BY comment_date DESC');
+        $reportComPosts = $db->query('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE reported = 1 AND (post_id IS NOT NULL AND animal_id IS NULL) ORDER BY comment_date DESC');
         $reportedCommentsPosts = $reportComPosts->fetchAll();
         return $reportedCommentsPosts;
     }
@@ -87,7 +71,7 @@ class CommentManager extends Manager {
     public function getReportedCommentsAnimals()
     {
         $db = $this->dbConnection();
-        $reportComAnimals = $db->query('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE reported = 1 AND (post_id =0 AND animal_id != 0) ORDER BY comment_date DESC');
+        $reportComAnimals = $db->query('SELECT * , DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin\') AS comment_date_fr FROM comments WHERE reported = 1 AND (post_id IS NULL AND animal_id IS NOT NULL) ORDER BY comment_date DESC');
         $reportedCommentsAnimals = $reportComAnimals->fetchAll();
         return $reportedCommentsAnimals;
     }

@@ -78,8 +78,6 @@ class BackEndController {
     {
         $postManager = new PostManager();
         $postManager->removePost($post_id);
-        $commentManager = new CommentManager();
-        $commentManager->removeAllCommentsFromPost($post_id);
         header('Location: https://projetsls.fr/SPA-Chamalieres/Administration-Post/Page-1');
     }
 
@@ -87,8 +85,6 @@ class BackEndController {
     {
         $animalManager = new AnimalManager();
         $animalManager->removeAnimal($animal_id);
-        $commentManager = new CommentManager();
-        $commentManager->removeAllCommentsFromAnimalPost($animal_id);
         $img_jpg = 'images/animals/' . $animal_id . '.jpg';
         $img_jpeg = 'images/animals/' . $animal_id . '.jpeg';
         if(file_exists($img_jpg)){
